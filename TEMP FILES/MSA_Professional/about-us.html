@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSA Professional – Proprietor Profile</title>
+    <style>
+        :root {
+            --primary: #101f37;
+            --secondary: #0608a5;
+            --accent: #0e59a3;
+            --light: #f7f9fa;
+            --dark: #0f172a;
+            --gray: #021634;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header {
+            background-color: var(--primary);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo .accent {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            font-weight: 500;
+            transition: all .3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .page-header {
+            padding-top: 100px;
+            position: relative;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .geometric-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, var(--secondary), var(--accent));
+            opacity: .8;
+            z-index: -1;
+        }
+
+        .circle-1,
+        .circle-2,
+        .square {
+            position: absolute;
+            background-color: rgba(255, 255, 255, .1);
+            border-radius: 50%;
+        }
+
+        .circle-1 {
+            width: 30vw;
+            height: 30vw;
+            top: -10%;
+            left: -5%;
+        }
+
+        .circle-2 {
+            width: 20vw;
+            height: 20vw;
+            bottom: -10%;
+            right: 15%;
+            background-color: rgba(255, 255, 255, .15);
+        }
+
+        .square {
+            width: 15vw;
+            height: 15vw;
+            transform: rotate(45deg);
+            top: 25%;
+            right: -5%;
+        }
+
+        .page-title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            background-color: white;
+            display: inline-flex;
+            padding: .5rem 1.5rem;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb a {
+            color: var(--gray);
+            transition: color .3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb .separator {
+            margin: 0 .8rem;
+        }
+
+        .breadcrumb .current {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .profile-hero {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .profile-image-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .contact-item .icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .contact-item .contact-text {
+            flex: 1;
+        }
+
+        .contact-item strong {
+            color: var(--primary);
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .profile-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .accent-line {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            margin: 2rem 0;
+        }
+
+        .profile-description {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            margin-right: 1rem;
+
+        }
+       
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+       /* Enhanced Expertise Section */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.info-card {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all .3s ease;
+    border-left: 5px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.info-card h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-card ul {
+    list-style: none;
+}
+
+.info-card li {
+    padding: 0.8rem 0;
+    color: var(--gray);
+    position: relative;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.info-card li:before {
+    content: "▸";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.info-card li:hover {
+    color: var(--primary);
+    padding-left: 2.5rem;
+}
+
+/* Enhanced Achievements Section */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.achievement-item {
+    background: linear-gradient(135deg, rgba(236, 72, 153, .08), rgba(99, 102, 241, .08));
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.achievement-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    border-radius: 16px;
+    padding: 2px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.achievement-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-label {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Section Titles Enhancement */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    border-radius: 2px;
+}
+
+/* Professional Philosophy Enhancement */
+.section:last-of-type .info-card {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 4rem 3rem;
+    border-left: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.section:last-of-type .info-card::before {
+    display: none;
+}
+
+.section:last-of-type .info-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.section:last-of-type .info-card p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 1.2rem !important;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Adjustments */
+@media(max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .achievement-number {
+        font-size: 2.8rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .info-card {
+        padding: 2.5rem 2rem;
+    }
+    
+    .achievement-item {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">MSA<span class="accent">Professional</span></div>
+        <nav class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/services.html">Services</a>
+            <a href="/about-us.html">About Us</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="geometric-bg"></div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="square"></div>
+        <h1 class="page-title">Profile</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="separator">›</span>
+            <a href="contact.html">Team</a>
+            <span class="separator">›</span>
+            <span class="current">Profile</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="profile-hero">
+            <div class="profile-image-section">
+                <img src="/images/profile.png" alt="Mritunjay Chandra Shekhar" class="profile-image">
+                <div class="contact-card">
+                    <h3>Contact Information</h3>
+
+                    <div class="contact-item">
+                        <div class="icon">✉</div>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            <span>mritunjay@msaprofessional.com</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <div class="contact-text">
+                            <strong>Phone</strong>
+                            <span>+91 807 656 7045</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="https://www.linkedin.com/in/mritunjay-c-shekhar-44595b24/" target="_blank">
+                            <div class="icon" style="background: linear-gradient(45deg, #0077b5, #005885);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <strong>LinkedIn</strong>
+                                <span>Connect with me</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="https://taxguru.in/author/mc_shekhar/" target="_blank">
+                            <div class="icon" style="background: linear-gradient(45deg, #ff6b35, #f7931e);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <strong>TaxGuru</strong>
+                                <span>View Articles</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <h1 class="profile-name">Mritunjay Chandra Shekhar</h1>
+                <p class="profile-title">Proprietor, MSA Professional</p>
+                <span class="accent-line"></span>
+                <p class="profile-description">
+                    A seasoned professional with extensive experience in company secretarial services, corporate
+                    governance, and regulatory compliance. Leading MSA Professional with a commitment to excellence and
+                    integrity in all business operations. Specializes in providing comprehensive solutions for corporate
+                    compliance and governance requirements including Company Formation in countries like Dubai, Singapore, Hong Kong, USA, Netherlands, Malaysia, Togo, Ghana, Djibouti, Kenya, Nigeria,
+                    Panama and many more.
+                </p>
+                <p class="profile-description">
+                    With 22 years of experience in the field, Mritunjay Shekhar has built a reputation for delivering
+                    reliable,
+                    efficient, and professional services to clients across various industries. His expertise spans
+                    across company incorporation, compliance management, strategic business advisory services,
+                    assistance in Bank Account Opening, and facilitating all regulatory approvals to
+                    ensure your business operations remain compliant with regulatory guidelines.
+                </p>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Professional Expertise</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Core Specializations</h3>
+                    <ul>
+                        <li>Company Secretarial Services</li>
+                        <li>Corporate Governance</li>
+                        <li>Regulatory Compliance</li>
+                        <li>Business Advisory</li>
+                        <li>Legal Documentation</li>
+                        <li>Strategic Planning</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Industry Experience</h3>
+                    <ul>
+                        <li>Private Limited Companies</li>
+                        <li>Public Limited Companies</li>
+                        <li>LLP Formation & Management</li>
+                        <li>Non-Profit Organizations</li>
+                        <li>Foreign Company Registration</li>
+                        <li>Startup Consulting</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Key Services</h3>
+                    <ul>
+                        <li>Company Registration</li>
+                        <li>Regulatory Compliance</li>
+                        <li>FDI/ODI Compliance</li>
+                        <li>Trademark Registration</li>
+                        <li>Corporate Restructuring</li>
+                        <li>Due Diligence</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Professional Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <span class="achievement-number">20+</span>
+                    <span class="achievement-label">Years Experience</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-number">100+</span>
+                    <span class="achievement-label">Companies Served</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-number">150+</span>
+                    <span class="achievement-label">Compliance Filings</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-number">100%</span>
+                    <span class="achievement-label">Client Satisfaction</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Professional Philosophy</h2>
+            <div class="info-card">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray);">
+                    "At MSA Professional, we believe that every business deserves access to reliable, professional, and
+                    comprehensive corporate services. Our commitment is to provide solutions that not only meet
+                    regulatory requirements but also add strategic value to our clients' business operations. We strive
+                    to build long-term partnerships based on trust, transparency, and exceptional service delivery."
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer" style="background-color:var(--primary);color:var(--light);padding:3rem 10%;">
+        <div class="footer-content"
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;">
+            <div>
+                <div class="footer-logo" style="font-size:1.8rem;font-weight:700;margin-bottom:1rem;">
+                    MSA<span class="accent">Professional</span>
+                </div>
+                <p>Providing comprehensive company secretarial services with integrity, precision, and professionalism
+                    since 2018.</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:var(--accent);margin-bottom:1rem;">Quick Links</h4>
+                <ul style="list-style:none;">
+                    <li><a href="index.html" style="color:var(--light);">Home</a></li>
+                    <li><a href="services.html" style="color:var(--light);">Services</a></li>
+                    <li><a href="contact.html" style="color:var(--light);">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 style="color:var(--accent);margin-bottom:1rem;">Contact Us</h4>
+                <p>📍 311-B, Vikas surya Galaxy, Sector-4, Dwarka, New Delhi</p>
+                <p>📞 +91 11 4556 5819</p>
+                <p>✉️ info@msaprofessional.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom"
+            style="text-align:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);margin-top:3rem;">
+            <p>&copy; 2025 MSA Professional. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

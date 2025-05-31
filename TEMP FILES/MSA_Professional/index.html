@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSA Professional – Company Secretary Services</title>
+    <style>
+        :root {
+            --primary: #101f37;
+            --secondary: #0608a5;
+            --accent: #0e59a3;
+            --light: #f7f9fa;
+            --dark: #0f172a;
+            --gray: #021634;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Header */
+        .header {
+            background: var(--primary);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo .accent {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            font-weight: 500;
+            transition: color .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero / Page Header */
+        .page-header {
+            padding-top: 100px;
+            position: relative;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .geometric-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, var(--secondary), var(--accent));
+            opacity: .8;
+            z-index: -1;
+        }
+
+        .circle-1,
+        .circle-2,
+        .square {
+            position: absolute;
+            background: rgba(255, 255, 255, .1);
+            border-radius: 50%;
+        }
+
+        .circle-1 {
+            width: 30vw;
+            height: 30vw;
+            top: -10%;
+            left: -5%;
+        }
+
+        .circle-2 {
+            width: 20vw;
+            height: 20vw;
+            bottom: -10%;
+            right: 15%;
+        }
+
+        .square {
+            width: 15vw;
+            height: 15vw;
+            transform: rotate(45deg);
+            top: 25%;
+            right: -5%;
+        }
+
+        .page-title {
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-subtitle {
+            color: white;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            z-index: 1;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .page-cta {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all .3s;
+        }
+
+        .page-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        .accent-line {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            margin-top: 1rem;
+        }
+
+        /* Cards & Grids */
+        .modern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .modern-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all .3s;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-accent {
+            height: 8px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            display: inline-block;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .card-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: .8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background .3s;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+        }
+
+        /* Feature Boxes */
+        .feature-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: .5rem;
+        }
+
+        .feature-label {
+            color: var(--primary);
+        }
+
+        /* Image-Text */
+        .image-text-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .image-text-section .image-container {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .image-text-section .image-container img {
+            width: 100%;
+            display: block;
+            transition: transform .5s;
+        }
+
+        .image-text-section .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-text-section .content-box {
+            padding: 2rem;
+            background: linear-gradient(45deg, rgba(236, 72, 153, .03), rgba(99, 102, 241, .03));
+            border-radius: 12px;
+        }
+
+        .image-text-section .content-box h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .content-list {
+            list-style: none;
+        }
+
+        .content-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 2rem 0;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            background: white;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            top: 50%;
+            transform: translateY(-50%);
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: .3rem 1rem;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            color: white;
+            border-radius: 20px;
+            font-size: .9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .faq-arrow {
+            transition: transform .3s;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            margin-bottom: 5rem;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all .3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--light);
+            padding: 3rem 10%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo .accent {
+            color: var(--accent);
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: .8rem;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            transition: color .3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-contact p {
+            margin-bottom: .8rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media(max-width:992px) {
+            .image-text-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 40px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px !important;
+                padding-right: 0 !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 30px !important;
+                right: auto !important;
+            }
+
+            .timeline-content::after {
+                left: -10px !important;
+                right: auto !important;
+            }
+        }
+
+        @media(max-width:768px) {
+            .header {
+                flex-direction: column;
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">MSA<span class="accent">Professional</span></div>
+        <nav class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/services.html">Services</a>
+            <a href="/about-us.html">About Us</a>
+            <!-- <a href="/projects.html">Projects</a> -->
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-header">
+        <div class="geometric-bg"></div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="square"></div>
+        <h1 class="page-title">Expert Company Secretary Services</h1>
+        <p class="page-subtitle">Streamlining corporate compliance with precision, experience, and dedication for over a
+            decade in the Indian corporate landscape.</p>
+        <a href="#contact" class="page-cta">Schedule Consultation</a>
+    </section>
+
+    <div class="container">
+
+        <!-- Features -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Comprehensive Company Secretary Services</h2>
+                <p class="section-subtitle">We offer a wide range of professional company secretarial services tailored
+                    to meet the specific needs of businesses across India, ensuring compliance with all regulatory
+                    requirements.</p>
+                <span class="accent-line"></span>
+            </div>
+            <div class="feature-boxes">
+                <div class="feature-box">
+                    <div class="feature-number">✓</div>
+                    <div class="feature-label">Regulatory Expertise</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-number">✓</div>
+                    <div class="feature-label">Timely Compliance</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-number">✓</div>
+                    <div class="feature-label">Personalized Approach</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Services -->
+        <section id="services" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="section-subtitle">Discover our range of specialized services designed to support your business
+                    throughout its lifecycle.</p>
+                <span class="accent-line"></span>
+            </div>
+            <div class="modern-grid">
+                <div class="modern-card">
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-icon">📝</div>
+                        <h3 class="card-title">Company Formation</h3>
+                        <p class="card-text">Complete assistance in incorporating new businesses including Private
+                            Limited, LLP, OPC, and more with all necessary documentation.</p>
+                        <ul class="content-list">
+                            <li>Name approval and reservation</li>
+                            <li>Drafting MOA and AOA</li>
+                            <li>Filing of incorporation documents</li>
+                            <li>Post-incorporation compliances</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modern-card">
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-icon">⚖️</div>
+                        <h3 class="card-title">Statutory Compliance</h3>
+                        <p class="card-text">Comprehensive compliance management services to ensure adherence to
+                            Companies Act, SEBI regulations, and other statutory requirements.</p>
+                        <ul class="content-list">
+                            <li>Annual compliance calendar</li>
+                            <li>ROC filings and returns</li>
+                            <li>Maintenance of statutory registers</li>
+                            <li>Regulatory updates and advisory</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modern-card">
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🏢</div>
+                        <h3 class="card-title">Corporate Governance</h3>
+                        <p class="card-text">Expert guidance on corporate governance matters ensuring best practices are
+                            followed in board operations and decision-making.</p>
+                        <ul class="content-list">
+                            <li>Board meeting procedures</li>
+                            <li>Preparation of minutes and resolutions</li>
+                            <li>Governance structure development</li>
+                            <li>Director's training and advisory</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modern-card">
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-icon">📊</div>
+                        <h3 class="card-title">Corporate Restructuring</h3>
+                        <p class="card-text">Strategic advice and implementation of corporate restructuring initiatives
+                            including mergers, acquisitions, and demergers.</p>
+                        <ul class="content-list">
+                            <li>Scheme of arrangement</li>
+                            <li>Due diligence coordination</li>
+                            <li>Regulatory approvals</li>
+                            <li>Post-restructuring compliance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modern-card">
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-icon">📈</div>
+                        <h3 class="card-title">Foreign Investment</h3>
+                        <p class="card-text">Specialized services for handling foreign investments, FEMA compliance, and
+                            overseas business setup assistance.</p>
+                        <ul class="content-list">
+                            <li>FDI compliance advisory</li>
+                            <li>RBI filings and approvals</li>
+                            <li>ODI formalities</li>
+                            <li>Annual compliance reporting</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modern-card">
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🔍</div>
+                        <h3 class="card-title">Legal Due Diligence</h3>
+                        <p class="card-text">Comprehensive due diligence services for corporate transactions with
+                            detailed reporting and risk assessment.</p>
+                        <ul class="content-list">
+                            <li>Corporate documentation review</li>
+                            <li>Compliance status verification</li>
+                            <li>Risk identification and reporting</li>
+                            <li>Transaction advisory support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Approach -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Our Approach</h2>
+                <p class="section-subtitle">How we work with you to ensure seamless corporate compliance and governance.
+                </p>
+                <span class="accent-line"></span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Step 1</span>
+                        <h3>Initial Consultation</h3>
+                        <p>We begin with a detailed consultation to understand your business requirements, compliance
+                            status, and specific challenges.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Step 2</span>
+                        <h3>Assessment & Planning</h3>
+                        <p>Our team conducts a comprehensive assessment and creates a tailored compliance roadmap for
+                            your organization.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Step 3</span>
+                        <h3>Implementation</h3>
+                        <p>We implement the agreed strategy, handling all necessary filings, documentation, and
+                            compliance procedures.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Step 4</span>
+                        <h3>Ongoing Support</h3>
+                        <p>Continuous monitoring, timely updates, and proactive advisory to keep your business compliant
+                            with evolving regulations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IPO Support -->
+        <!-- <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Specialized IPO & Listing Support</h2>
+                <p class="section-subtitle">Comprehensive assistance for companies planning to go public or get listed
+                    on stock exchanges.</p>
+                <span class="accent-line"></span>
+            </div>
+            <div class="image-text-section">
+                <div class="image-container">
+                    <img src="/api/placeholder/600/400" alt="IPO Advisory Services">
+                </div>
+                <div class="content-box">
+                    <h3 class="content-title">End-to-End IPO Assistance</h3>
+                    <p>Our team provides comprehensive support throughout the IPO process, ensuring regulatory
+                        compliance and smooth transition to a publicly listed company.</p>
+                    <ul class="content-list">
+                        <li>Pre-IPO readiness assessment</li>
+                        <li>Corporate restructuring for listing</li>
+                        <li>SEBI compliance management</li>
+                        <li>Drafting of offer documents</li>
+                        <li>Coordination with regulators and exchanges</li>
+                        <li>Post-listing compliance setup</li>
+                    </ul>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- FAQ -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Answers to common questions</p>
+                <span class="accent-line"></span>
+            </div>
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item"
+                    style="border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.3s ease;"
+                    onmouseover="this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='none'">
+                    <div class="faq-question"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; background-color: #f8f9fa; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#f8f9fa'"
+                        onclick="toggleFAQ(this)">
+                        <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #333; flex: 1; padding-right: 20px;">
+                            What is the role of a Company Secretary in India?</h3>
+                        <div class="faq-arrow"
+                            style="font-size: 18px; color: #666; transition: transform 0.3s ease; user-select: none;">▼</div>
+                    </div>
+                    <div class="faq-answer"
+                        style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; background-color: #fff;">
+                        <p style="margin: 0; line-height: 1.6; color: #555;">A Company Secretary in India serves as a key
+                            managerial personnel responsible for ensuring
+                            compliance with various corporate laws, maintaining statutory records, facilitating board
+                            meetings, and acting as a liaison between the company and regulatory authorities like MCA,
+                            SEBI, and ROC.</p>
+                    </div>
+                </div>
+        
+                <div class="faq-item"
+                    style="border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.3s ease;"
+                    onmouseover="this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='none'">
+                    <div class="faq-question"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; background-color: #f8f9fa; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#f8f9fa'"
+                        onclick="toggleFAQ(this)">
+                        <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #333; flex: 1; padding-right: 20px;">How
+                            can MSA Professional help my business?</h3>
+                        <div class="faq-arrow"
+                            style="font-size: 18px; color: #666; transition: transform 0.3s ease; user-select: none;">▼</div>
+                    </div>
+                    <div class="faq-answer"
+                        style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; background-color: #fff;">
+                        <p style="margin: 0; line-height: 1.6; color: #555;">MSA Professional offers a comprehensive range of
+                            company secretary services including company
+                            formation, statutory compliance, corporate governance, and specialized advisory for IPOs and
+                            foreign investments. Our expert team ensures that your business remains compliant with all
+                            regulatory requirements while providing strategic guidance to enhance operational efficiency.</p>
+                    </div>
+                </div>
+        
+                <div class="faq-item"
+                    style="border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.3s ease;"
+                    onmouseover="this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='none'">
+                    <div class="faq-question"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; background-color: #f8f9fa; transition: background-color 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#f8f9fa'"
+                        onclick="toggleFAQ(this)">
+                        <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #333; flex: 1; padding-right: 20px;">Is
+                            it mandatory for my company to appoint a Company Secretary?</h3>
+                        <div class="faq-arrow"
+                            style="font-size: 18px; color: #666; transition: transform 0.3s ease; user-select: none;">▼</div>
+                    </div>
+                    <div class="faq-answer"
+                        style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; background-color: #fff;">
+                        <p style="margin: 0; line-height: 1.6; color: #555;">Under the Companies Act, 2013, every listed company
+                            and certain classes of unlisted companies
+                            must appoint a qualified Company Secretary as a Key Managerial Personnel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            function toggleFAQ(questionElement) {
+                const faqItem = questionElement.parentElement;
+                const faqAnswer = questionElement.nextElementSibling;
+                const arrow = questionElement.querySelector('.faq-arrow');
+
+                // Close other open FAQ items (optional - remove this section if you want multiple items open)
+                const allFaqItems = document.querySelectorAll('.faq-item');
+                allFaqItems.forEach(item => {
+                    if (item !== faqItem) {
+                        const otherAnswer = item.querySelector('.faq-answer');
+                        const otherArrow = item.querySelector('.faq-arrow');
+                        otherAnswer.style.maxHeight = '0';
+                        otherAnswer.style.padding = '0 20px';
+                        otherArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle current item
+                if (faqAnswer.style.maxHeight === '0px' || faqAnswer.style.maxHeight === '') {
+                    // Open
+                    faqAnswer.style.maxHeight = '200px';
+                    faqAnswer.style.padding = '20px';
+                    arrow.style.transform = 'rotate(180deg)';
+                } else {
+                    // Close
+                    faqAnswer.style.maxHeight = '0';
+                    faqAnswer.style.padding = '0 20px';
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            }
+        </script>
+
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <span class="accent-line"></span>
+            </div>
+            <div class="image-text-section">
+                <div class="content-box">
+                    <h3>Contact Information</h3>
+                    <p>📍 311-B, Vikas surya Galaxy<br>Sector-4, Dwarka<br>New Delhi - 110071, India</p><br>
+                    <h3>Phone & Email</h3>
+                    <p>📞 +91 95400 43975<br>📞 +91 11 4556 5819</p> <br>
+                    <p>✉️ info@msaprofessional.com<br>✉️ mritunjay@msaprofessional.com</p><br>
+                    <h3>Office Hours</h3>
+                    <p>Mon–Fri: 10:30 AM – 6:30 PM</p>
+                </div>
+                <div class="content-box">
+                    <h3>Send Us a Message</h3>
+                        <form style="max-width:600px;margin:2rem auto;font-family:'Segoe UI',sans-serif;" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                            <input type="hidden" name="access_key" value="6c92a83a-c5b5-4e47-8d9a-9a7d9c839e87">
+                        <div style="margin-bottom:1rem;">
+                            <input type="text" placeholder="Your Name" style="
+                                                  box-sizing: border-box;
+                                                  width: 100%;
+                                                  padding: 0.8rem 1rem;
+                                                  border-radius: 12px;
+                                                  border: 2px solid rgba(100,116,139,0.3);
+                                                  background-color: #f8fafc;
+                                                  font-size: 1rem;
+                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                                                "
+                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
+                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';">
+                        </div>
+                    
+                        <div style="margin-bottom:1rem;">
+                            <input type="email" placeholder="Your Email" style="
+                                                  box-sizing: border-box;
+                                                  width: 100%;
+                                                  padding: 0.8rem 1rem;
+                                                  border-radius: 12px;
+                                                  border: 2px solid rgba(100,116,139,0.3);
+                                                  background-color: #f8fafc;
+                                                  font-size: 1rem;
+                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                                                "
+                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
+                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';">
+                        </div>
+                    
+                        <div style="margin-bottom:1rem;">
+                            <input type="text" placeholder="Subject" style="
+                                                  box-sizing: border-box;
+                                                  width: 100%;
+                                                  padding: 0.8rem 1rem;
+                                                  border-radius: 12px;
+                                                  border: 2px solid rgba(100,116,139,0.3);
+                                                  background-color: #f8fafc;
+                                                  font-size: 1rem;
+                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                                                "
+                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
+                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';">
+                        </div>
+                    
+                        <div style="margin-bottom:1.5rem;">
+                            <textarea rows="5" placeholder="Your Message" style="
+                                                  box-sizing: border-box;
+                                                  width: 100%;
+                                                  padding: 0.8rem 1rem;
+                                                  border-radius: 12px;
+                                                  border: 2px solid rgba(100,116,139,0.3);
+                                                  background-color: #f8fafc;
+                                                  font-size: 1rem;
+                                                  resize: vertical;
+                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                                                "
+                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
+                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';"></textarea>
+                        </div>
+                        <div class="antispam" style="display: none;">
+                            <input type="text" name="url" placeholder="Leave this empty">
+                        </div>
+                    
+                        <button type="submit" style="
+                                                display: inline-block;
+                                                border-radius: 30px;
+                                                background-color: #489aec;
+                                                color: #ffffff;
+                                                padding: 0.8rem 1.5rem;
+                                                font-size: 1rem;
+                                                font-weight: 600;
+                                                border: none;
+                                                cursor: pointer;
+                                                transition: background-color 0.3s ease;
+                                              " onmouseover="this.style.backgroundColor='#6366f1';"
+                            onmouseout="this.style.backgroundColor='#489aec';">
+                            Send Message
+                        </button>
+                    
+                    </form>
+                      
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">MSA<span class="accent">Professional</span></div>
+                <p>Providing comprehensive company secretarial services with integrity, precision, and professionalism
+                    since 2018.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/projects.html">Testimonials</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Company Incorporation</a></li>
+                    <li><a href="#">Compliance Management</a></li>
+                    <li><a href="#">Annual Filings</a></li>
+                    <li><a href="#">Corporate Restructuring</a></li>
+                    <li><a href="#">Due Diligence</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>📍 311-B, Vikas surya Galaxy, Sector-4, Dwarka, New Delhi</p>
+                <p>📞 +91 11 4556 5819</p>
+                <p>✉️ info@msaprofessional.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MSA Professional. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

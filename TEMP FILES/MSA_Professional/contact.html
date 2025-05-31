@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSA Professional – Contact</title>
+    <style>
+        :root {
+            --primary: #101f37;
+            --secondary: #0608a5;
+            --accent: #0e59a3;
+            --light: #f7f9fa;
+            --dark: #0f172a;
+            --gray: #021634;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header {
+            background-color: var(--primary);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo .accent {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            font-weight: 500;
+            transition: all .3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .page-header {
+            padding-top: 100px;
+            position: relative;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .geometric-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, var(--secondary), var(--accent));
+            opacity: .8;
+            z-index: -1;
+        }
+
+        .circle-1,
+        .circle-2,
+        .square {
+            position: absolute;
+            background-color: rgba(255, 255, 255, .1);
+            border-radius: 50%;
+        }
+
+        .circle-1 {
+            width: 30vw;
+            height: 30vw;
+            top: -10%;
+            left: -5%;
+        }
+
+        .circle-2 {
+            width: 20vw;
+            height: 20vw;
+            bottom: -10%;
+            right: 15%;
+            background-color: rgba(255, 255, 255, .15);
+        }
+
+        .square {
+            width: 15vw;
+            height: 15vw;
+            transform: rotate(45deg);
+            top: 25%;
+            right: -5%;
+        }
+
+        .page-title {
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            background-color: white;
+            display: inline-flex;
+            padding: .5rem 1.5rem;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb a {
+            color: var(--gray);
+            transition: color .3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb .separator {
+            margin: 0 .8rem;
+        }
+
+        .breadcrumb .current {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        .accent-line {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            margin-top: 1rem;
+        }
+
+        .modern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .modern-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all .3s ease;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-content img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .image-text-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .content-box {
+            padding: 2rem;
+            background: linear-gradient(45deg, rgba(236, 72, 153, .03), rgba(99, 102, 241, .03));
+            border-radius: 12px;
+        }
+
+        .content-box h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .content-box p {
+            margin-bottom: 1rem;
+        }
+
+        .content-box form input,
+        .content-box form textarea {
+            width: 100%;
+            padding: .8rem;
+            border: 2px solid #eeeeee;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .content-box form button {
+            background-color: var(--accent);
+            color: white;
+            padding: .8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media(max-width:992px) {
+            .image-text-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media(max-width:768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">MSA<span class="accent">Professional</span></div>
+        <nav class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/services.html">Services</a>
+            <a href="/about-us.html">About Us</a>
+            <!-- <a href="/projects.html">Projects</a> -->
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="geometric-bg"></div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="square"></div>
+        <h1 class="page-title">Get In Touch</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="separator">›</span>
+            <span class="current">Contact</span>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Meet the Team</h2>
+                <p class="section-subtitle">Our experts dedicated to your compliance and governance needs.</p>
+                <span class="accent-line"></span>
+            </div>
+            <div class="modern-grid">
+                <div class="modern-card">
+                    <div class="card-content">
+                        <img src="/images/profile.png" alt="Mritunjay Chandra Shekhar">
+                        <h3 class="card-title">Mritunjay Chandra Shekhar</h3>
+                        <p>Prop., MSA Professional</p>
+                        <p>✉️ mritunjay@msaprofessional.com</p>
+                    </div>
+                </div>
+                <div class="modern-card">
+                    <div class="card-content">
+                        <img src="/images/default-icon.png" alt="Ajay Choudhary">
+                        <h3 class="card-title">Ajay Choudhary</h3>
+                        <p>Partner, MSA Professional</p>
+                        <p>✉️ info@msaprofessional.com</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Company Contact Details</h2>
+                <span class="accent-line"></span>
+            </div>
+            <div class="image-text-section">
+                <div class="content-box">
+                    <h3>Contact Information</h3>
+                    <p>📍 311-B, Vikas surya Galaxy<br>Sector-4, Dwarka<br>New Delhi - 110071, India</p><br>
+                    <h3>Phone & Email</h3>
+                    <p>📞 +91 95400 43975<br>📞 +91 11 4556 5819</p> <br>
+                    <p>✉️ info@msaprofessional.com<br>✉️ mritunjay@msaprofessional.com</p><br>
+                    <h3>Office Hours</h3>
+                    <p>Mon–Fri: 10:30 AM – 6:30 PM</p>
+                </div>
+                <div class="content-box">
+                    <h3>Send Us a Message</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                        <input type="hidden" name="access_key" value="6c92a83a-c5b5-4e47-8d9a-9a7d9c839e87">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
+                        <div class="antispam" style="display: none;">
+                            <input type="text" name="url" placeholder="Leave this empty">
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                
+                
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer" style="background-color:var(--primary);color:var(--light);padding:3rem 10%;">
+        <div class="footer-content"
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;">
+            <div>
+                <div class="footer-logo" style="font-size:1.8rem;font-weight:700;margin-bottom:1rem;">
+                    MSA<span class="accent">Professional</span>
+                </div>
+                <p>Providing comprehensive company secretarial services with integrity, precision, and professionalism
+                since 2018.</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:var(--accent);margin-bottom:1rem;">Quick Links</h4>
+                <ul style="list-style:none;">
+                    <li><a href="index.html" style="color:var(--light);">Home</a></li>
+                    <li><a href="services.html" style="color:var(--light);">Services</a></li>
+                    <li><a href="projects.html" style="color:var(--light);">Projects</a></li>
+                    <li><a href="contact.html" style="color:var(--light);">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 style="color:var(--accent);margin-bottom:1rem;">Contact Us</h4>
+                <p>📍 311-B, Vikas surya Galaxy, Sector-4, Dwarka, New Delhi</p>
+                <p>📞 +91 11 4556 5819</p>
+                <p>✉️ info@msaprofessional.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom"
+            style="text-align:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);margin-top:3rem;">
+            <p>&copy; 2025 MSA Professional. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+
+</body>
+
+</html>
