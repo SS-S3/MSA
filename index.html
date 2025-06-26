@@ -992,10 +992,17 @@
                 <div class="content-box">
                     <h3>Send Us a Message</h3>
                     <form style="max-width:600px;margin:2rem auto;font-family:'Segoe UI',sans-serif;"
-                        action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-                        <input type="hidden" name="access_key" value="6c92a83a-c5b5-4e47-8d9a-9a7d9c839e87">
+                        action="https://formsubmit.co/info@msaprofessional.com" method="POST" id="contactForm">
+                        <input type="hidden" name="_subject" value="New Message from MSA Professional">
+
+                        <input type="hidden" name="_next" value="https://msaprofessional.com">
+
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+
+
+
                         <div style="margin-bottom:1rem;">
-                            <input type="text" placeholder="Your Name" style="
+                            <input type="text" name = "name" placeholder="Your Name" style="
                                                   box-sizing: border-box;
                                                   width: 100%;
                                                   padding: 0.8rem 1rem;
@@ -1010,7 +1017,7 @@
                         </div>
 
                         <div style="margin-bottom:1rem;">
-                            <input type="email" placeholder="Your Email" style="
+                            <input type="email" name="email" placeholder="Your Email" style="
                                                   box-sizing: border-box;
                                                   width: 100%;
                                                   padding: 0.8rem 1rem;
@@ -1025,7 +1032,7 @@
                         </div>
 
                         <div style="margin-bottom:1rem;">
-                            <input type="text" placeholder="Subject" style="
+                            <input type="text" name="subject" placeholder="Subject" style="
                                                   box-sizing: border-box;
                                                   width: 100%;
                                                   padding: 0.8rem 1rem;
@@ -1040,7 +1047,7 @@
                         </div>
 
                         <div style="margin-bottom:1.5rem;">
-                            <textarea rows="5" placeholder="Your Message" style="
+                            <textarea rows="5" name = "message" placeholder="Your Message" style="
                                                   box-sizing: border-box;
                                                   width: 100%;
                                                   padding: 0.8rem 1rem;
