@@ -291,7 +291,7 @@
             margin-right: 1rem;
 
         }
-       
+
 
         .section {
             margin-bottom: 4rem;
@@ -304,225 +304,231 @@
             margin-bottom: 1.5rem;
         }
 
-       /* Enhanced Expertise Section */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 4rem;
-}
+        /* Enhanced Expertise Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
 
-.info-card {
-    background: white;
-    padding: 3rem 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: all .3s ease;
-    border-left: 5px solid var(--accent);
-    position: relative;
-    overflow: hidden;
-}
+        .info-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all .3s ease;
+            border-left: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
 
-.info-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--secondary), var(--accent));
-}
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
 
-.info-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
 
-.info-card h3 {
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.info-card ul {
-    list-style: none;
-}
+        .info-card ul {
+            list-style: none;
+        }
 
-.info-card li {
-    padding: 0.8rem 0;
-    color: var(--gray);
-    position: relative;
-    padding-left: 2rem;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+        .info-card li {
+            padding: 0.8rem 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-.info-card li:before {
-    content: "▸";
-    color: var(--accent);
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
+        .info-card li:before {
+            content: "▸";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
 
-.info-card li:hover {
-    color: var(--primary);
-    padding-left: 2.5rem;
-}
+        .info-card li:hover {
+            color: var(--primary);
+            padding-left: 2.5rem;
+        }
 
-/* Enhanced Achievements Section */
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
+        /* Enhanced Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-.achievement-item {
-    background: linear-gradient(135deg, rgba(236, 72, 153, .08), rgba(99, 102, 241, .08));
-    padding: 3rem 2rem;
-    border-radius: 16px;
-    text-align: center;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    position: relative;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
+        .achievement-item {
+            background: linear-gradient(135deg, rgba(236, 72, 153, .08), rgba(99, 102, 241, .08));
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
 
-.achievement-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--accent), var(--secondary));
-    border-radius: 16px;
-    padding: 2px;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    z-index: -1;
-}
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 16px;
+            padding: 2px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            z-index: -1;
+        }
 
-.achievement-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
+        .achievement-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
 
-.achievement-number {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .achievement-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.achievement-label {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+        .achievement-label {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-/* Section Titles Enhancement */
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    text-align: center;
-    position: relative;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+        /* Section Titles Enhancement */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--secondary), var(--accent));
-    border-radius: 2px;
-}
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
 
-/* Professional Philosophy Enhancement */
-.section:last-of-type .info-card {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    padding: 4rem 3rem;
-    border-left: none;
-    position: relative;
-    overflow: hidden;
-}
+        /* Professional Philosophy Enhancement */
+        .section:last-of-type .info-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 3rem;
+            border-left: none;
+            position: relative;
+            overflow: hidden;
+        }
 
-.section:last-of-type .info-card::before {
-    display: none;
-}
+        .section:last-of-type .info-card::before {
+            display: none;
+        }
 
-.section:last-of-type .info-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    animation: float 6s ease-in-out infinite;
-}
+        .section:last-of-type .info-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
-}
+        @keyframes float {
 
-.section:last-of-type .info-card p {
-    color: rgba(255, 255, 255, 0.95) !important;
-    font-size: 1.2rem !important;
-    font-weight: 500;
-    position: relative;
-    z-index: 1;
-}
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
 
-/* Responsive Adjustments */
-@media(max-width: 768px) {
-    .info-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .achievements-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-    
-    .achievement-number {
-        font-size: 2.8rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .info-card {
-        padding: 2.5rem 2rem;
-    }
-    
-    .achievement-item {
-        padding: 2.5rem 1.5rem;
-    }
-}
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
 
+        .section:last-of-type .info-card p {
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-size: 1.2rem !important;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Adjustments */
+        @media(max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .achievements-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .achievement-number {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .info-card {
+                padding: 2.5rem 2rem;
+            }
+
+            .achievement-item {
+                padding: 2.5rem 1.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -564,7 +570,7 @@
                         <div class="icon">✉</div>
                         <div class="contact-text">
                             <strong>Email</strong>
-                            <span>mritunjay@msaprofessional.com</span>
+                            <span>shekharmritunjay3@gmail.com</span>
                         </div>
                     </div>
 
@@ -616,7 +622,8 @@
                     A seasoned professional with extensive experience in company secretarial services, corporate
                     governance, and regulatory compliance. Leading MSA Professional with a commitment to excellence and
                     integrity in all business operations. Specializes in providing comprehensive solutions for corporate
-                    compliance and governance requirements including Company Formation in countries like Dubai, Singapore, Hong Kong, USA, Netherlands, Malaysia, Togo, Ghana, Djibouti, Kenya, Nigeria,
+                    compliance and governance requirements including Company Formation in countries like Dubai,
+                    Singapore, Hong Kong, USA, Netherlands, Malaysia, Togo, Ghana, Djibouti, Kenya, Nigeria,
                     Panama and many more.
                 </p>
                 <p class="profile-description">
@@ -727,7 +734,7 @@
                 <h4 style="color:var(--accent);margin-bottom:1rem;">Contact Us</h4>
                 <p>📍 311-B, Vikas surya Galaxy, Sector-4, Dwarka, New Delhi</p>
                 <p>📞 +91 11 4556 5819</p>
-                <p>✉️ info@msaprofessional.com</p>
+                <p>✉️ shekharmritunjay3@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom"
