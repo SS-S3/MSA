@@ -1,1111 +1,1714 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MSA Professional – Company Secretary Services</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">
     <style>
         :root {
-            --primary: #101f37;
-            --secondary: #0608a5;
-            --accent: #0e59a3;
-            --light: #f7f9fa;
-            --dark: #0f172a;
-            --gray: #021634;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* Header */
-        .header {
-            background: var(--primary);
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            color: var(--light);
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .logo .accent {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--light);
-            font-weight: 500;
-            transition: color .3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero / Page Header */
-        .page-header {
-            padding-top: 100px;
-            position: relative;
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .geometric-bg {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, var(--secondary), var(--accent));
-            opacity: .8;
-            z-index: -1;
-        }
-
-        .circle-1,
-        .circle-2,
-        .square {
-            position: absolute;
-            background: rgba(255, 255, 255, .1);
-            border-radius: 50%;
-        }
-
-        .circle-1 {
-            width: 30vw;
-            height: 30vw;
-            top: -10%;
-            left: -5%;
-        }
-
-        .circle-2 {
-            width: 20vw;
-            height: 20vw;
-            bottom: -10%;
-            right: 15%;
-        }
-
-        .square {
-            width: 15vw;
-            height: 15vw;
-            transform: rotate(45deg);
-            top: 25%;
-            right: -5%;
-        }
-
-        .page-title {
-            color: white;
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .page-subtitle {
-            color: white;
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            z-index: 1;
-            text-align: center;
-            max-width: 600px;
-        }
-
-        .page-cta {
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            background: white;
-            color: var(--primary);
-            border-radius: 30px;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all .3s;
-        }
-
-        .page-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Sections */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section {
-            margin-bottom: 5rem;
-        }
-
-        .section-header {
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            color: var(--gray);
-            font-size: 1.1rem;
-            max-width: 700px;
-        }
-
-        .accent-line {
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            margin-top: 1rem;
-        }
-
-        /* Cards & Grids */
-        .modern-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .modern-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all .3s;
-        }
-
-        .modern-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-accent {
-            height: 8px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-            display: inline-block;
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .card-text {
-            margin-bottom: 1.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: .8rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: background .3s;
-        }
-
-        .btn:hover {
-            background: var(--secondary);
-        }
-
-        /* Feature Boxes */
-        .feature-boxes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .feature-box {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: .5rem;
-        }
-
-        .feature-label {
-            color: var(--primary);
-        }
-
-        /* Image-Text */
-        .image-text-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .image-text-section .image-container {
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .image-text-section .image-container img {
-            width: 100%;
-            display: block;
-            transition: transform .5s;
-        }
-
-        .image-text-section .image-container:hover img {
-            transform: scale(1.05);
-        }
-
-        .image-text-section .content-box {
-            padding: 2rem;
-            background: linear-gradient(45deg, rgba(236, 72, 153, .03), rgba(99, 102, 241, .03));
-            border-radius: 12px;
-        }
-
-        .image-text-section .content-box h3 {
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        .content-list {
-            list-style: none;
-        }
-
-        .content-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .content-list li:before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--secondary), var(--accent));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            padding: 2rem 0;
-            position: relative;
-            width: 50%;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 3rem;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 3rem;
-        }
-
-        .timeline-content {
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(45deg);
-            background: white;
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::after {
-            left: -10px;
-            right: auto;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--accent);
-            top: 50%;
-            transform: translateY(-50%);
-            right: -10px;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -10px;
-            right: auto;
-        }
-
-        .timeline-date {
-            display: inline-block;
-            padding: .3rem 1rem;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            color: white;
-            border-radius: 20px;
-            font-size: .9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .faq-question h3 {
-            font-size: 1.1rem;
-            color: var(--primary);
-        }
-
-        .faq-arrow {
-            transition: transform .3s;
-        }
-
-        .faq-item.active .faq-arrow {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            color: var(--gray);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            padding: 4rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            color: white;
-            margin-bottom: 5rem;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-text {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-btn {
-            background: white;
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all .3s;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: var(--light);
-            padding: 3rem 10%;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo .accent {
-            color: var(--accent);
-        }
-
-        .footer-links h4,
-        .footer-contact h4 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: .8rem;
-        }
-
-        .footer-links a {
-            color: var(--light);
-            transition: color .3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-contact p {
-            margin-bottom: .8rem;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, .1);
-            margin-top: 3rem;
-        }
-
-        /* Responsive */
-        @media(max-width:992px) {
-            .image-text-section {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .timeline::before {
-                left: 40px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 80px !important;
-                padding-right: 0 !important;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-dot {
-                left: 30px !important;
-                right: auto !important;
-            }
-
-            .timeline-content::after {
-                left: -10px !important;
-                right: auto !important;
-            }
-        }
-
-        @media(max-width:768px) {
-            .header {
-                flex-direction: column;
-                padding: 1rem 5%;
-            }
-
-            .logo {
-                margin-bottom: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .page-title {
-                font-size: 2.2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .cta-title {
-                font-size: 2rem;
-            }
-            
+            --navy:   #0D1F3C;
+            --blue:   #1250D6;
+            --blue-lt:#EEF3FF;
+            --amber:  #F59E0B;
+            --amber-d:#D97706;
+            --bg:     #FFFFFF;
+            --soft:   #F5F7FB;
+            --text:   #0D1F3C;
+            --body:   #4A5673;
+            --muted:  #8B96B0;
+            --border: #E2E8F2;
+            --green:  #25D366;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; }
+
+        /* ── TOP BAR ── */
+        .topbar {
+            background: var(--navy);
+            padding: .45rem 5%;
+            display: flex; justify-content: flex-end; align-items: center; gap: 1.4rem;
+            font-size: .82rem;
+        }
+        .topbar a { color: #8eadd4; display: flex; align-items: center; gap: .4rem; transition: color .2s; }
+        .topbar a:hover { color: #fff; }
+        .topbar .wa-pill { background: var(--green); color: #fff; padding: .24rem .85rem; border-radius: 20px; font-weight: 600; }
+        .topbar .wa-pill:hover { background: #1fba59; color: #fff; }
+        @media (max-width: 600px) { .topbar .phone-text { display: none; } }
+
+        /* ── NAV ── */
+        .nav {
+            position: sticky; top: 0; z-index: 200;
+            background: rgba(255,255,255,.96); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--text); }
+        .nav-logo span { color: var(--blue); }
+        .nav-links { display: flex; gap: 2.2rem; align-items: center; }
+        .nav-links a { font-size: .88rem; font-weight: 500; color: var(--body); transition: color .2s; }
+        .nav-links a:hover { color: var(--blue); }
+        .nav-cta { background: var(--blue) !important; color: #fff !important; padding: .5rem 1.3rem; border-radius: 7px; font-weight: 600 !important; transition: background .2s !important; }
+        .nav-cta:hover { background: #0c3dbf !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Mobile overlay */
+        .mob-nav {
+            display: none; position: fixed; inset: 0; background: #fff; z-index: 500;
+            padding: 5rem 8% 3rem; flex-direction: column;
+        }
+        .mob-nav.open { display: flex; }
+        .mob-close { position: absolute; top: 1.2rem; right: 5%; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--text); }
+        .mob-nav a { display: block; font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--text); padding: .7rem 0; border-bottom: 1px solid var(--border); transition: color .2s; }
+        .mob-nav a:last-of-type { border: none; }
+        .mob-nav a:hover { color: var(--blue); }
+        .mob-footer { margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: .7rem; }
+        .mob-footer a { font-family: 'Inter', sans-serif; font-size: .95rem; font-weight: 500; color: var(--body); border: none; padding: .3rem 0; }
+
+        /* ── HERO ── */
+        .hero-section { position: relative; overflow: hidden; background: linear-gradient(160deg, rgba(240,245,255,.94) 0%, rgba(255,255,255,.91) 55%, rgba(245,247,251,.94) 100%), url('images/2.jpg') center/cover no-repeat; }
+        .hero-bg-dots { position: absolute; inset: 0; background-image: radial-gradient(#1250D61a 1.5px, transparent 1.5px); background-size: 28px 28px; pointer-events: none; z-index: 0; }
+        .hero-blob { position: absolute; border-radius: 50%; pointer-events: none; }
+        .hero-blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, #1250D60d, transparent 70%); top: -150px; right: 100px; }
+        .hero-blob-2 { width: 350px; height: 350px; background: radial-gradient(circle, #F59E0B0b, transparent 70%); bottom: -80px; left: 60px; }
+        .hero-wrap { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 80px 5% 70px; display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center; }
+        .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 3.8vw, 3.9rem); font-weight: 800; line-height: 1.13; color: var(--text); margin-bottom: 1.4rem; }
+        .hero-h1 em { color: var(--blue); font-style: normal; }
+        .hero-p { font-size: 1.05rem; color: var(--body); max-width: 500px; line-height: 1.8; margin-bottom: 2rem; }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .btn-amber { display: inline-flex; align-items: center; gap: .5rem; background: var(--amber); color: var(--navy); font-weight: 700; font-size: .95rem; padding: .85rem 2rem; border-radius: 8px; box-shadow: 0 4px 16px rgba(245,158,11,.3); transition: all .25s; }
+        .btn-amber:hover { background: var(--amber-d); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(245,158,11,.38); }
+        .btn-outline { display: inline-flex; align-items: center; gap: .5rem; background: transparent; color: var(--text); font-weight: 600; font-size: .95rem; padding: .85rem 1.8rem; border-radius: 8px; border: 1.5px solid var(--border); transition: all .25s; }
+        .btn-outline:hover { border-color: var(--navy); background: var(--soft); }
+        .hero-sectors { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .hs-label { font-size: .75rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
+        .hs-tag { font-size: .73rem; font-weight: 500; background: rgba(255,255,255,.8); color: var(--body); padding: .25rem .75rem; border-radius: 20px; border: 1px solid var(--border); white-space: nowrap; backdrop-filter: blur(4px); }
+        /* Trust strip under sectors */
+        .hero-trust-strip { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .hts-item { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--body); font-weight: 500; }
+        .hts-icon { width: 28px; height: 28px; background: var(--blue-lt); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .85rem; flex-shrink: 0; }
+        /* Floating visual cards around credential card */
+        .hero-right-wrap { position: relative; }
+        .hfc { position: absolute; background: #fff; border-radius: 14px; padding: .75rem 1.1rem; box-shadow: 0 12px 32px rgba(13,31,60,.14); display: flex; align-items: center; gap: .65rem; z-index: 20; border: 1px solid var(--border); backdrop-filter: blur(8px); }
+        .hfc.hfc-1 { top: -28px; left: -20px; animation: float 5s ease-in-out infinite 0s; }
+        .hfc.hfc-2 { bottom: 30px; left: -38px; animation: float 5s ease-in-out infinite 1.7s; }
+        .hfc.hfc-3 { bottom: -22px; right: 10px; animation: float 5s ease-in-out infinite 0.9s; }
+        .hfc-ico { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+        .hfc-val { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1; }
+        .hfc-lbl { font-size: .68rem; color: var(--muted); font-weight: 500; margin-top: .1rem; }
+
+        /* Credentials card */
+        .cred-card { background: var(--navy); border-radius: 22px; padding: 2.4rem; color: #fff; position: relative; overflow: hidden; }
+        .cred-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,.04); border-radius: 50%; }
+        .cc-av { width: 74px; height: 74px; border-radius: 50%; overflow: hidden; margin-bottom: 1rem; border: 3px solid rgba(255,255,255,.28); flex-shrink: 0; }
+        .cc-av img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+        .cc-badge { display: inline-block; background: rgba(245,158,11,.18); border: 1px solid rgba(245,158,11,.35); color: #fbbf24; font-size: .7rem; font-weight: 700; letter-spacing: .09em; padding: .28rem .85rem; border-radius: 20px; margin-bottom: .8rem; }
+        .cc-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: .2rem; }
+        .cc-role { font-size: .82rem; color: #8eadd4; margin-bottom: 2rem; }
+        .cc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; margin-bottom: 1.8rem; }
+        .cc-stat { background: rgba(255,255,255,.07); border-radius: 10px; padding: .9rem 1rem; }
+        .cc-stat-n { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+        .cc-stat-l { font-size: .72rem; color: #8eadd4; margin-top: .25rem; }
+        .cc-wa { display: flex; align-items: center; gap: .6rem; background: var(--green); color: #fff; font-weight: 600; font-size: .88rem; padding: .75rem 1.2rem; border-radius: 8px; transition: background .2s; }
+        .cc-wa:hover { background: #1fba59; color: #fff; }
+
+        /* ── COMPLIANCE CALENDAR ── */
+        .cal-wrap { display: flex; flex-direction: column; gap: 1.5rem; }
+        .cal-upcoming { background: linear-gradient(135deg,#0B1E45,#1250D6); border-radius: 14px; padding: 1.4rem 1.6rem; }
+        .cal-upcoming-lbl { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8eadd4; margin-bottom: .9rem; display: flex; align-items: center; gap: .5rem; }
+        .cal-upcoming-lbl::before { content:''; width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 2s infinite; }
+        .cal-urgent-row { display: flex; gap: .75rem; flex-wrap: wrap; }
+        .cal-urgent { background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.15); border-radius: 10px; padding: .75rem 1rem; flex: 1; min-width: 200px; }
+        .cal-urgent-days { font-family: 'Playfair Display',serif; font-size: 1.6rem; font-weight: 700; color: var(--amber); line-height: 1; }
+        .cal-urgent-days.overdue { color: #f87171; }
+        .cal-urgent-days span { font-size: .7rem; font-weight: 500; color: #8eadd4; display: block; margin-top: .15rem; font-family: 'Inter',sans-serif; }
+        .cal-urgent-title { font-size: .83rem; font-weight: 600; color: #fff; margin-top: .35rem; line-height: 1.35; }
+        .cal-urgent-cat { font-size: .7rem; font-weight: 700; padding: .18rem .6rem; border-radius: 20px; display: inline-block; margin-top: .4rem; }
+        .cal-main { background: #fff; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.06); }
+        .cal-header { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--border); background: var(--soft); flex-wrap: wrap; gap: .8rem; }
+        .cal-nav { display: flex; align-items: center; gap: .7rem; }
+        .cal-nav-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: #fff; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+        .cal-nav-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+        .cal-month-title { font-family: 'Playfair Display',serif; font-size: 1.1rem; font-weight: 700; color: var(--text); min-width: 140px; text-align: center; }
+        .cal-filters { display: flex; gap: .45rem; flex-wrap: wrap; }
+        .cal-filter { padding: .35rem .9rem; border-radius: 20px; border: 1.5px solid var(--border); background: #fff; font-size: .74rem; font-weight: 600; cursor: pointer; transition: all .2s; color: var(--body); }
+        .cal-filter.active, .cal-filter:hover { color: #fff; border-color: transparent; }
+        .cal-filter[data-cat="all"].active { background: var(--navy); }
+        .cal-filter[data-cat="mca"].active { background: #1250D6; }
+        .cal-filter[data-cat="sebi"].active { background: #6B21A8; }
+        .cal-filter[data-cat="fema"].active { background: #B45309; }
+        .cal-filter[data-cat="tax"].active { background: #065F46; }
+        .cal-events { padding: 1.2rem 1.4rem; min-height: 220px; display: flex; flex-direction: column; gap: .6rem; }
+        .cal-empty { text-align: center; color: var(--muted); font-size: .88rem; padding: 3rem 1rem; }
+        .cal-event { display: flex; align-items: flex-start; gap: .9rem; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 10px; transition: all .2s; }
+        .cal-event:hover { box-shadow: 0 4px 16px rgba(0,0,0,.07); transform: translateX(3px); }
+        .cal-event.overdue { border-color: #fecaca; background: #fff5f5; }
+        .cal-event.soon { border-color: #fed7aa; background: #fffbeb; }
+        .cal-event-date { text-align: center; min-width: 42px; }
+        .cal-event-day { font-family: 'Playfair Display',serif; font-size: 1.5rem; font-weight: 700; line-height: 1; color: var(--text); }
+        .cal-event.overdue .cal-event-day { color: #dc2626; }
+        .cal-event.soon .cal-event-day { color: #d97706; }
+        .cal-event-mo { font-size: .67rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+        .cal-event-body { flex: 1; }
+        .cal-event-title { font-size: .88rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; line-height: 1.4; }
+        .cal-event-desc { font-size: .78rem; color: var(--body); line-height: 1.55; margin-bottom: .4rem; }
+        .cal-event-foot { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; }
+        .cal-badge { font-size: .68rem; font-weight: 700; padding: .18rem .6rem; border-radius: 20px; color: #fff; }
+        .cal-badge.mca { background: #1250D6; }
+        .cal-badge.sebi { background: #6B21A8; }
+        .cal-badge.fema { background: #B45309; }
+        .cal-badge.tax { background: #065F46; }
+        .cal-penalty { font-size: .72rem; color: #dc2626; font-weight: 500; }
+        .cal-gcal { font-size: .72rem; color: var(--blue); font-weight: 600; text-decoration: none; }
+        .cal-gcal:hover { text-decoration: underline; }
+        .cal-status { font-size: .68rem; font-weight: 700; padding: .15rem .55rem; border-radius: 20px; }
+        .cal-status.overdue { background: #fee2e2; color: #dc2626; }
+        .cal-status.soon { background: #fef3c7; color: #d97706; }
+        .cal-footer { padding: .7rem 1.4rem; border-top: 1px solid var(--border); font-size: .74rem; color: var(--muted); display: flex; justify-content: space-between; align-items: center; }
+        .cal-legend { display: flex; gap: .9rem; flex-wrap: wrap; }
+        .cal-legend-item { display: flex; align-items: center; gap: .35rem; font-size: .72rem; font-weight: 500; color: var(--body); }
+        .cal-legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+
+        /* ── REGULATORY UPDATES ── */
+        .reg-tabs { background: #fff; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.06); }
+        .reg-tab-btns { display: flex; overflow-x: auto; border-bottom: 1px solid var(--border); scrollbar-width: none; }
+        .reg-tab-btns::-webkit-scrollbar { display: none; }
+        .reg-tab-btn {
+            flex-shrink: 0; padding: .9rem 1.6rem; font-family: inherit; font-size: .83rem; font-weight: 600;
+            background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer;
+            color: var(--muted); transition: all .2s; white-space: nowrap;
+        }
+        .reg-tab-btn:hover { color: var(--blue); background: var(--soft); }
+        .reg-tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); background: var(--blue-lt); }
+        .reg-tab-btn .reg-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-left: .4rem; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+        .reg-content { padding: 1.5rem; min-height: 260px; }
+        .reg-items { display: flex; flex-direction: column; gap: .75rem; }
+        .reg-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: 10px; transition: all .2s; text-decoration: none; color: inherit; }
+        .reg-item:hover { border-color: var(--blue); background: var(--blue-lt); transform: translateX(4px); }
+        .reg-item-icon { width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; color: #fff; }
+        .reg-item-body { flex: 1; min-width: 0; }
+        .reg-item-title { font-size: .88rem; font-weight: 600; color: var(--text); line-height: 1.45; margin-bottom: .3rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .reg-item-meta { display: flex; align-items: center; gap: .6rem; font-size: .73rem; color: var(--muted); }
+        .reg-item-src { background: var(--soft); border: 1px solid var(--border); padding: .15rem .55rem; border-radius: 20px; font-weight: 600; }
+        .reg-item-arrow { font-size: .9rem; color: var(--blue); flex-shrink: 0; opacity: 0; transition: opacity .2s; }
+        .reg-item:hover .reg-item-arrow { opacity: 1; }
+        .reg-shimmer { display: flex; flex-direction: column; gap: .75rem; }
+        .reg-shimmer-row { height: 72px; border-radius: 10px; background: linear-gradient(90deg, var(--soft) 25%, var(--border) 50%, var(--soft) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+        @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+        .reg-error { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-size: .88rem; }
+        .reg-error p { margin-bottom: .75rem; }
+        .reg-err-link { display: inline-block; background: var(--blue); color: #fff; padding: .5rem 1.2rem; border-radius: 20px; font-size: .8rem; font-weight: 600; text-decoration: none; }
+        .reg-err-link:hover { background: #0e40b0; }
+        .reg-item-date { color: var(--muted); }
+        /* Static portal cards */
+        .reg-portals { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; padding: 1.2rem; }
+        .reg-portal-card { display: flex; align-items: flex-start; gap: .85rem; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; background: #fff; transition: box-shadow .2s, border-color .2s; }
+        .reg-portal-card:hover { box-shadow: 0 6px 20px rgba(13,31,60,.1); border-color: #b4c8f5; }
+        .reg-portal-ico { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .reg-portal-name { font-size: .88rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+        .reg-portal-desc { font-size: .75rem; color: var(--muted); line-height: 1.4; }
+        .reg-portal-arrow { margin-left: auto; font-size: .9rem; color: var(--blue); flex-shrink: 0; align-self: center; }
+        .reg-static-note { text-align: center; padding: .6rem 1.2rem 1rem; font-size: .74rem; color: var(--muted); }
+        @media(max-width:560px) { .reg-portals { grid-template-columns: 1fr; } }
+        .reg-footer { padding: .75rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: .75rem; color: var(--muted); }
+        .reg-footer a { color: var(--blue); font-weight: 600; }
+        .reg-live { display: flex; align-items: center; gap: .35rem; }
+        .reg-live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; flex-shrink: 0; }
+
+        /* ── SHARED ── */
+        .wrap { max-width: 1200px; margin: 0 auto; }
+        .sec { padding: 90px 5%; }
+        .sec.soft { background: var(--soft); }
+        .sec.dark { background: var(--navy); }
+        .slabel { font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: .7rem; }
+        .slabel.lt { color: #5b9bd5; }
+        .stitle { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 700; color: var(--text); line-height: 1.25; margin-bottom: .9rem; }
+        .stitle.lt { color: #fff; }
+        .sdesc { font-size: .98rem; color: var(--body); max-width: 580px; line-height: 1.8; }
+        .sdesc.lt { color: #8eadd4; }
+        .shead { margin-bottom: 3.5rem; }
+
+        /* ── PILLARS ── */
+        .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .pillar { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 2rem; transition: box-shadow .25s, transform .25s; }
+        .pillar:hover { box-shadow: 0 14px 40px rgba(0,0,0,.08); transform: translateY(-4px); }
+        .p-icon { width: 46px; height: 46px; background: var(--blue-lt); border-radius: 11px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; }
+        .p-icon svg { width: 22px; height: 22px; stroke: var(--blue); }
+        .pillar h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .45rem; }
+        .pillar p { font-size: .86rem; color: var(--body); line-height: 1.65; }
+
+        /* ── SERVICES ── */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .svc { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 2rem; position: relative; overflow: hidden; transition: box-shadow .25s, transform .25s; }
+        .svc:hover { box-shadow: 0 18px 48px rgba(0,0,0,.09); transform: translateY(-5px); }
+        .svc-num { position: absolute; top: 1.2rem; right: 1.6rem; font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700; color: var(--soft); line-height: 1; user-select: none; }
+        .svc-icon { width: 46px; height: 46px; background: var(--blue-lt); border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.1rem; }
+        .svc h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: .55rem; }
+        .svc p { font-size: .86rem; color: var(--body); margin-bottom: 1.1rem; line-height: 1.65; }
+        .svc ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+        .svc ul li { font-size: .82rem; color: var(--body); padding-left: 1.2rem; position: relative; }
+        .svc ul li::before { content: '›'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+
+        /* ── MID CTA ── */
+        .mid-cta { background: linear-gradient(135deg, #0B1E45 0%, #1250D6 100%); border-radius: 20px; padding: 3.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; }
+        .mid-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 2.8vw, 2.2rem); color: #fff; margin-bottom: .6rem; }
+        .mid-cta p { color: #8eadd4; font-size: .96rem; max-width: 480px; line-height: 1.75; }
+        .mid-cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; flex-shrink: 0; }
+        .btn-wh { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.1); color: #fff; font-weight: 600; font-size: .92rem; padding: .85rem 1.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.2); transition: background .2s; }
+        .btn-wh:hover { background: rgba(255,255,255,.2); color: #fff; }
+
+        /* ── PHOTO STRIP ── */
+        .photo-strip-sec { padding: 0; overflow: hidden; }
+        .photo-strip-inner { display: grid; grid-template-columns: 1fr 1fr; height: 360px; }
+        .photo-strip-card { position: relative; overflow: hidden; }
+        .photo-strip-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; display: block; }
+        .photo-strip-card:hover img { transform: scale(1.05); }
+        .photo-strip-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.2rem 1.6rem; background: linear-gradient(to top, rgba(13,31,60,.78) 0%, transparent 100%); color: #fff; font-weight: 600; font-size: 1rem; letter-spacing: .01em; }
+        @media(max-width:640px) { .photo-strip-inner { grid-template-columns: 1fr; height: auto; } .photo-strip-card { height: 230px; } }
+
+        /* ── ABOUT ── */
+        .about-wrap { display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: center; }
+        .about-img-col { position: relative; }
+        .about-photo { width: 100%; border-radius: 22px; object-fit: cover; object-position: center top; aspect-ratio: 4/5; display: block; box-shadow: 0 24px 64px rgba(13,31,60,.18); }
+        .about-badge { position: absolute; bottom: -18px; right: -18px; background: var(--navy); color: #fff; border-radius: 16px; padding: 1.1rem 1.4rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 12px 32px rgba(13,31,60,.28); }
+        .about-badge-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; line-height: 1; color: var(--amber); }
+        .about-badge-lbl { font-size: .72rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: #8fadd1; margin-top: .2rem; }
+        .about-cred-list { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0 1.6rem; }
+        .about-cred-tag { background: var(--blue-lt); color: var(--blue); border-radius: 20px; padding: .35rem 1rem; font-size: .78rem; font-weight: 600; border: 1px solid #c7d7f8; }
+        .about-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.8rem; }
+        .about-stat { text-align: center; }
+        .about-stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; color: var(--blue); line-height: 1; }
+        .about-stat-l { font-size: .75rem; color: var(--muted); font-weight: 500; margin-top: .3rem; }
+        .about-form-wrap { background: var(--soft); border-radius: 18px; padding: 1.8rem; margin-top: 2rem; border: 1px solid var(--border); }
+        .about-form-wrap h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 1rem; color: var(--navy); }
+        .about-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+        @media(max-width:960px) { .about-wrap { grid-template-columns: 1fr; } .about-img-col { max-width: 340px; } .about-photo { aspect-ratio: 1; } .about-badge { bottom: -14px; right: -10px; } }
+        @media(max-width:560px) { .about-form-row { grid-template-columns: 1fr; } .about-stats-row { grid-template-columns: 1fr 1fr 1fr; } }
+
+        /* ── PRIVACY MODAL ── */
+        .priv-overlay { position: fixed; inset: 0; background: rgba(13,31,60,.6); z-index: 9000; display: none; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(4px); }
+        .priv-overlay.open { display: flex; }
+        .priv-box { background: #fff; border-radius: 20px; max-width: 680px; width: 100%; max-height: 85vh; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 32px 80px rgba(13,31,60,.25); }
+        .priv-head { padding: 1.4rem 1.8rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+        .priv-head h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); }
+        .priv-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); padding: .2rem .5rem; border-radius: 6px; }
+        .priv-close:hover { background: var(--soft); color: var(--navy); }
+        .priv-body { padding: 1.5rem 1.8rem; overflow-y: auto; font-size: .9rem; line-height: 1.8; color: var(--body); }
+        .priv-body h4 { color: var(--navy); font-size: 1rem; margin: 1.4rem 0 .5rem; }
+
+        /* ── APPROACH ── */
+        .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; counter-reset: step; }
+        .step { position: relative; }
+        .step-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: .9rem; }
+        .step-bar { height: 3px; background: var(--blue-lt); border-radius: 2px; margin-bottom: 1.3rem; position: relative; overflow: hidden; }
+        .step-bar::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 30%; background: var(--blue); border-radius: 2px; }
+        .step h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+        .step p { font-size: .85rem; color: var(--body); line-height: 1.7; }
+
+        /* ── TESTIMONIALS ── */
+        .tgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.5rem; }
+        .tcard { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; }
+        .tcard-q { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: .75; color: rgba(255,255,255,.15); margin-bottom: .4rem; user-select: none; }
+        .tcard-stars { color: #fbbf24; font-size: .85rem; letter-spacing: 2px; margin-bottom: .9rem; }
+        .tcard-text { font-size: .9rem; color: #c0cce0; line-height: 1.78; flex: 1; font-style: italic; margin-bottom: 1.4rem; }
+        .tcard-author { display: flex; align-items: center; gap: .8rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.08); }
+        .tcard-av { width: 38px; height: 38px; background: linear-gradient(135deg, var(--blue), #5b9bd5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+        .tcard-name { font-size: .88rem; font-weight: 600; color: #fff; }
+        .tcard-role { font-size: .74rem; color: #8eadd4; }
+
+        /* ── CS PROFILE ── */
+        .cs-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3.5rem; align-items: start; }
+        .cs-card { background: linear-gradient(155deg, var(--navy) 0%, #1250D6 100%); border-radius: 20px; padding: 2.2rem; color: #fff; position: sticky; top: 90px; }
+        .cs-av { width: 76px; height: 76px; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: .9rem; }
+        .cs-fcs { display: inline-block; background: rgba(245,158,11,.2); border: 1px solid rgba(245,158,11,.35); color: #fbbf24; font-size: .68rem; font-weight: 700; letter-spacing: .1em; padding: .26rem .85rem; border-radius: 20px; margin-bottom: .8rem; }
+        .cs-nm { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: .2rem; }
+        .cs-rl { font-size: .8rem; color: #8eadd4; margin-bottom: 1.8rem; }
+        .cs-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-bottom: 1.6rem; }
+        .cs-s { background: rgba(255,255,255,.07); border-radius: 9px; padding: .85rem; }
+        .cs-s-n { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; line-height: 1; }
+        .cs-s-l { font-size: .7rem; color: #8eadd4; margin-top: .2rem; }
+        .cs-links { display: flex; flex-direction: column; gap: .55rem; }
+        .cs-lnk { display: flex; align-items: center; gap: .55rem; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); color: #fff; font-size: .82rem; font-weight: 500; padding: .55rem 1rem; border-radius: 7px; transition: background .2s; }
+        .cs-lnk:hover { background: rgba(255,255,255,.15); color: #fff; }
+        .cs-lnk svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+        .cs-right { }
+        .cs-bio { font-size: .95rem; color: var(--body); line-height: 1.82; margin-bottom: 1.8rem; }
+        .cs-box { background: var(--soft); border-radius: 14px; padding: 1.8rem; margin-bottom: 1.5rem; }
+        .cs-box h4 { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
+        .cs-tags { display: flex; flex-wrap: wrap; gap: .55rem; }
+        .cs-tag { background: #fff; border: 1px solid var(--border); color: var(--body); font-size: .78rem; font-weight: 500; padding: .35rem .85rem; border-radius: 20px; }
+        .cs-countries { font-size: .88rem; color: var(--body); line-height: 1.8; }
+
+        /* ── FAQ ── */
+        .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: .75rem; }
+        .fi { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .fi-q { display: flex; justify-content: space-between; align-items: center; padding: 1.15rem 1.4rem; cursor: pointer; transition: background .2s; }
+        .fi-q:hover { background: var(--soft); }
+        .fi-q h3 { font-size: .93rem; font-weight: 600; color: var(--text); flex: 1; padding-right: 1rem; }
+        .fi-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--blue-lt); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 700; flex-shrink: 0; transition: transform .3s, background .2s; user-select: none; }
+        .fi.open .fi-icon { transform: rotate(45deg); background: var(--blue); color: #fff; }
+        .fi-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+        .fi-a-inner { padding: 0 1.4rem 1.1rem; font-size: .88rem; color: var(--body); line-height: 1.75; }
+
+        /* ── CONTACT ── */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .ci-block { display: flex; flex-direction: column; gap: 1.3rem; }
+        .ci { display: flex; align-items: flex-start; gap: 1rem; }
+        .ci-ico { width: 40px; height: 40px; background: var(--blue-lt); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .ci-ico svg { width: 18px; height: 18px; stroke: var(--blue); }
+        .ci-lbl { font-size: .7rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .18rem; }
+        .ci-val { font-size: .92rem; color: var(--text); font-weight: 500; line-height: 1.5; }
+        .ci-val a { color: var(--text); transition: color .2s; }
+        .ci-val a:hover { color: var(--blue); }
+        .wa-contact { display: inline-flex; align-items: center; gap: .6rem; background: var(--green); color: #fff; font-weight: 600; font-size: .88rem; padding: .7rem 1.4rem; border-radius: 8px; margin-top: .5rem; transition: background .2s; }
+        .wa-contact:hover { background: #1fba59; color: #fff; }
+        .map-wrap { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-top: 1.8rem; }
+
+        .form-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 2.4rem; box-shadow: 0 10px 40px rgba(0,0,0,.06); }
+        .form-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: .35rem; }
+        .form-card > p { font-size: .85rem; color: var(--body); margin-bottom: 1.8rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .fg { margin-bottom: 1rem; }
+        .fg label { display: block; font-size: .76rem; font-weight: 600; color: var(--body); margin-bottom: .38rem; letter-spacing: .02em; }
+        .fg input, .fg textarea, .fg select { width: 100%; padding: .72rem .95rem; border: 1.5px solid var(--border); border-radius: 8px; font-size: .9rem; font-family: inherit; color: var(--text); background: #fff; transition: border-color .2s, box-shadow .2s; }
+        .fg input:focus, .fg textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(18,80,214,.1); }
+        .fg textarea { resize: vertical; }
+        .form-note { font-size: .74rem; color: var(--muted); margin-bottom: 1.1rem; }
+        .form-note a { color: var(--blue); }
+        .form-submit { width: 100%; background: var(--blue); color: #fff; font-weight: 700; font-size: .98rem; padding: .9rem; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; transition: background .2s, transform .2s; }
+        .form-submit:hover { background: #0c3dbf; transform: translateY(-1px); }
+
+        /* ── FOOTER ── */
+        .footer { background: var(--navy); color: #8eadd4; padding: 60px 5% 28px; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
+        .ft-brand { }
+        .ft-logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: #fff; margin-bottom: .8rem; }
+        .ft-logo span { color: #5b9bd5; }
+        .ft-brand p { font-size: .84rem; line-height: 1.78; margin-bottom: 1.2rem; }
+        .ft-social { display: flex; gap: .55rem; }
+        .ft-social a { width: 34px; height: 34px; background: rgba(255,255,255,.07); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #8eadd4; transition: background .2s, color .2s; }
+        .ft-social a:hover { background: rgba(255,255,255,.15); color: #fff; }
+        .ft-col h4 { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #5b9bd5; margin-bottom: 1.2rem; }
+        .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+        .ft-col a { font-size: .86rem; color: #8eadd4; transition: color .2s; }
+        .ft-col a:hover { color: #fff; }
+        .ft-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.07); padding-top: 1.4rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: .79rem; }
+        .ft-bottom a { color: #8eadd4; }
+        .ft-bottom a:hover { color: #fff; }
+
+        /* ── SCROLL PROGRESS ── */
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--amber)); width: 0%; z-index: 9999; transition: width .1s linear; border-radius: 0 2px 2px 0; }
+
+        /* ── REVEAL ANIMATIONS ── */
+        .reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .65s ease, transform .65s ease; }
+        .reveal-left.in { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .65s ease, transform .65s ease; }
+        .reveal-right.in { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(.92); transition: opacity .6s ease, transform .6s ease; }
+        .reveal-scale.in { opacity: 1; transform: scale(1); }
+
+        /* Stagger delays for grid children */
+        .stagger > *:nth-child(1) { transition-delay: 0s; }
+        .stagger > *:nth-child(2) { transition-delay: .1s; }
+        .stagger > *:nth-child(3) { transition-delay: .2s; }
+        .stagger > *:nth-child(4) { transition-delay: .3s; }
+        .stagger > *:nth-child(5) { transition-delay: .4s; }
+        .stagger > *:nth-child(6) { transition-delay: .5s; }
+        .stagger > *:nth-child(7) { transition-delay: .6s; }
+
+        /* ── CREDENTIAL CARD FLOAT ── */
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .cred-card { animation: float 5s ease-in-out infinite; }
+
+        /* ── TESTIMONIAL CAROUSEL ── */
+        .t-carousel { position: relative; overflow: hidden; }
+        .t-track { display: flex; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+        .t-slide { flex: 0 0 calc(33.333% - 1rem); margin-right: 1.5rem; }
+        .t-dots { display: flex; justify-content: center; gap: .55rem; margin-top: 2rem; }
+        .t-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.2); border: none; cursor: pointer; transition: all .3s; padding: 0; }
+        .t-dot.active { background: var(--amber); width: 24px; border-radius: 4px; }
+        .t-arrows { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+        .t-arrow { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 1.1rem; cursor: pointer; transition: background .2s; display: flex; align-items: center; justify-content: center; }
+        .t-arrow:hover { background: rgba(255,255,255,.2); }
+        @media (max-width: 768px) {
+            .t-slide { flex: 0 0 calc(100% - 1rem); }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .t-slide { flex: 0 0 calc(50% - 1rem); }
+        }
+
+        /* ── SERVICE CARD HOVER GLOW ── */
+        .svc { transition: box-shadow .3s, transform .3s, border-color .3s; }
+        .svc:hover { border-color: var(--blue); box-shadow: 0 20px 50px rgba(18,80,214,.12); }
+        .svc:hover .svc-icon { background: var(--blue); transform: scale(1.1) rotate(-5deg); transition: all .3s; }
+
+        /* ── PILLAR HOVER ── */
+        .pillar:hover .p-icon { background: var(--blue); transition: background .25s; }
+        .pillar:hover .p-icon svg { stroke: #fff; }
+
+        /* ── STEP NUMBER PULSE ── */
+        .step:hover .step-num { color: var(--blue); transition: color .3s; }
+        .step:hover .step-bar::before { width: 100%; transition: width .6s ease; }
+
+        /* ── BUTTON RIPPLE ── */
+        .btn-amber, .btn-outline, .form-submit, .nav-cta {
+            position: relative; overflow: hidden;
+        }
+        .btn-amber::after, .btn-outline::after, .form-submit::after {
+            content: ''; position: absolute; inset: 0; background: rgba(255,255,255,.15);
+            opacity: 0; transition: opacity .2s;
+        }
+        .btn-amber:active::after, .btn-outline:active::after, .form-submit:active::after { opacity: 1; }
+
+        /* ── ACTIVE NAV ── */
+        .nav-links a.active { color: var(--blue); font-weight: 600; }
+
+        /* ── FLOATS ── */
+        .wa-fab { position: fixed; bottom: 26px; right: 22px; width: 54px; height: 54px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(37,211,102,.5); z-index: 999; transition: transform .25s; }
+        .wa-fab:hover { transform: scale(1.1); }
+        .wa-fab svg { width: 27px; height: 27px; }
+        .wa-tip { position: absolute; right: 62px; background: var(--navy); color: #fff; font-size: .76rem; font-weight: 600; padding: .32rem .85rem; border-radius: 20px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s; }
+        .wa-fab:hover .wa-tip { opacity: 1; }
+        .btt { position: fixed; bottom: 92px; right: 26px; width: 40px; height: 40px; background: var(--navy); color: #fff; border-radius: 50%; display: none; align-items: center; justify-content: center; z-index: 998; cursor: pointer; border: none; box-shadow: 0 4px 14px rgba(0,0,0,.2); font-size: 1.1rem; transition: background .2s; }
+        .btt:hover { background: var(--blue); }
+        .btt.show { display: flex; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .hero-wrap { grid-template-columns: 1fr; }
+            .hero-right-wrap { max-width: 480px; margin: 2.5rem auto 0; }
+            .hfc.hfc-1 { top: -22px; left: 0; }
+            .hfc.hfc-2 { bottom: 20px; left: -10px; }
+            .hfc.hfc-3 { bottom: -18px; right: 10px; }
+            .cred-card { max-width: 100%; }
+            .cc-stats { grid-template-columns: repeat(4, 1fr); }
+            .approach-grid { grid-template-columns: repeat(2, 1fr); }
+            .cs-grid { grid-template-columns: 1fr; }
+            .cs-card { position: static; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .sec { padding: 60px 5%; }
+            .hero-wrap { padding: 50px 5% 50px; }
+            .pillars { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .mid-cta { flex-direction: column; padding: 2.5rem 2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .ft-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 520px) {
+            .approach-grid { grid-template-columns: 1fr; }
+            .cc-stats { grid-template-columns: 1fr 1fr; }
+            .tgrid { grid-template-columns: 1fr; }
+            .hero-btns { flex-direction: column; }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">MSA<span class="accent">Professional</span></div>
-        <nav class="nav-links">
-            <a href="/MSA/index.html">Home</a>
-            <a href="/MSA/services.html">Services</a>
-            <a href="/MSA/about-us.html">About Us</a>
-            <!-- <a href="/projects.html">Projects</a> -->
-            <a href="/MSA/contact.html">Contact</a>
-        </nav>
-    </header>
+<div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Hero -->
-    <section class="page-header">
-        <div class="geometric-bg"></div>
-        <div class="circle-1"></div>
-        <div class="circle-2"></div>
-        <div class="square"></div>
-        <h1 class="page-title">Expert Company Secretary Services</h1>
-        <p class="page-subtitle">Streamlining corporate compliance with precision, experience, and dedication for over a
-            decade in the Indian corporate landscape.</p>
-        <a href="#contact" class="page-cta">Schedule Consultation</a>
-    </section>
+<!-- Top Bar -->
+<div class="topbar">
+    <a href="tel:+918076567045">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        <span class="phone-text">+91 807 656 7045</span>
+    </a>
+    <a href="https://wa.me/918076567045" target="_blank" rel="noopener" class="wa-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+    </a>
+</div>
 
-    <div class="container">
+<!-- Nav -->
+<nav class="nav">
+    <div class="nav-logo">MSA<span>Professional</span></div>
+    <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Schedule Consultation</a>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
 
-        <!-- Features -->
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">Comprehensive Company Secretary Services</h2>
-                <p class="section-subtitle">We offer a wide range of professional company secretarial services tailored
-                    to meet the specific needs of businesses across India, ensuring compliance with all regulatory
-                    requirements.</p>
-                <span class="accent-line"></span>
-            </div>
-            <div class="feature-boxes">
-                <div class="feature-box">
-                    <div class="feature-number">✓</div>
-                    <div class="feature-label">Regulatory Expertise</div>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-number">✓</div>
-                    <div class="feature-label">Timely Compliance</div>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-number">✓</div>
-                    <div class="feature-label">Personalized Approach</div>
-                </div>
-            </div>
-        </section>
+<!-- Mobile Nav -->
+<div class="mob-nav" id="mobNav">
+    <button class="mob-close" id="mobClose">✕</button>
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <div class="mob-footer">
+        <a href="tel:+918076567045">📞 +91 807 656 7045</a>
+        <a href="https://wa.me/918076567045" target="_blank" rel="noopener" style="color:var(--green);">💬 Chat on WhatsApp</a>
+    </div>
+</div>
 
-        <!-- Core Services -->
-        <section id="services" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Our Core Services</h2>
-                <p class="section-subtitle">Discover our range of specialized services designed to support your business
-                    throughout its lifecycle.</p>
-                <span class="accent-line"></span>
+<!-- ── HERO ── -->
+<section class="hero-section" id="hero">
+    <div class="hero-bg-dots"></div>
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-wrap">
+        <div class="hero-left">
+            <h1 class="hero-h1">Corporate Compliance,<br><em>Delivered with<br>Precision.</em></h1>
+            <p class="hero-p">MSA Professional offers expert company secretarial services — from incorporation to restructuring — trusted by 150+ businesses across India and 12+ countries since 2018.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-amber">Schedule Consultation →</a>
+                <a href="#services" class="btn-outline">Explore Services</a>
             </div>
-            <div class="modern-grid">
-                <div class="modern-card">
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-icon">📝</div>
-                        <h3 class="card-title">Company Formation</h3>
-                        <p class="card-text">Complete assistance in incorporating new businesses including Private
-                            Limited, LLP, OPC, and more with all necessary documentation.</p>
-                        <ul class="content-list">
-                            <li>Name approval and reservation</li>
-                            <li>Drafting MOA and AOA</li>
-                            <li>Filing of incorporation documents</li>
-                            <li>Post-incorporation compliances</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modern-card">
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-icon">⚖️</div>
-                        <h3 class="card-title">Statutory Compliance</h3>
-                        <p class="card-text">Comprehensive compliance management services to ensure adherence to
-                            Companies Act, SEBI regulations, and other statutory requirements.</p>
-                        <ul class="content-list">
-                            <li>Annual compliance calendar</li>
-                            <li>ROC filings and returns</li>
-                            <li>Maintenance of statutory registers</li>
-                            <li>Regulatory updates and advisory</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modern-card">
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-icon">🏢</div>
-                        <h3 class="card-title">Corporate Governance</h3>
-                        <p class="card-text">Expert guidance on corporate governance matters ensuring best practices are
-                            followed in board operations and decision-making.</p>
-                        <ul class="content-list">
-                            <li>Board meeting procedures</li>
-                            <li>Preparation of minutes and resolutions</li>
-                            <li>Governance structure development</li>
-                            <li>Director's training and advisory</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modern-card">
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-icon">📊</div>
-                        <h3 class="card-title">Corporate Restructuring</h3>
-                        <p class="card-text">Strategic advice and implementation of corporate restructuring initiatives
-                            including mergers, acquisitions, and demergers.</p>
-                        <ul class="content-list">
-                            <li>Scheme of arrangement</li>
-                            <li>Due diligence coordination</li>
-                            <li>Regulatory approvals</li>
-                            <li>Post-restructuring compliance</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modern-card">
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-icon">📈</div>
-                        <h3 class="card-title">Foreign Investment</h3>
-                        <p class="card-text">Specialized services for handling foreign investments, FEMA compliance, and
-                            overseas business setup assistance.</p>
-                        <ul class="content-list">
-                            <li>FDI compliance advisory</li>
-                            <li>RBI filings and approvals</li>
-                            <li>ODI formalities</li>
-                            <li>Annual compliance reporting</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modern-card">
-                    <div class="card-accent"></div>
-                    <div class="card-content">
-                        <div class="card-icon">🔍</div>
-                        <h3 class="card-title">Legal Due Diligence</h3>
-                        <p class="card-text">Comprehensive due diligence services for corporate transactions with
-                            detailed reporting and risk assessment.</p>
-                        <ul class="content-list">
-                            <li>Corporate documentation review</li>
-                            <li>Compliance status verification</li>
-                            <li>Risk identification and reporting</li>
-                            <li>Transaction advisory support</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="hero-sectors">
+                <span class="hs-label">We serve:</span>
+                <span class="hs-tag">Telecom</span>
+                <span class="hs-tag">Real Estate</span>
+                <span class="hs-tag">Retail</span>
+                <span class="hs-tag">Power & Energy</span>
+                <span class="hs-tag">IT Sector</span>
+                <span class="hs-tag">International Trade</span>
+                <span class="hs-tag">Manufacturing</span>
+                <span class="hs-tag">Startups</span>
             </div>
-        </section>
+            <div class="hero-trust-strip">
+                <div class="hts-item"><div class="hts-icon">✅</div><span>Zero Penalty Track Record</span></div>
+                <div class="hts-item"><div class="hts-icon">⚡</div><span>2-Hour Response Time</span></div>
+                <div class="hts-item"><div class="hts-icon">🏛</div><span>ICSI Fellow · FCS 12594</span></div>
+            </div>
+        </div>
+        <div class="hero-right-wrap">
+            <!-- Floating achievement cards -->
+            <div class="hfc hfc-1">
+                <div class="hfc-ico" style="background:#eef3ff;">📄</div>
+                <div><div class="hfc-val">500+</div><div class="hfc-lbl">Filings Completed</div></div>
+            </div>
+            <div class="hfc hfc-2">
+                <div class="hfc-ico" style="background:#ecfdf5;">🌍</div>
+                <div><div class="hfc-val">12+</div><div class="hfc-lbl">Countries Covered</div></div>
+            </div>
+            <div class="hfc hfc-3">
+                <div class="hfc-ico" style="background:#fffbeb;">⭐</div>
+                <div><div class="hfc-val">100%</div><div class="hfc-lbl">Client Satisfaction</div></div>
+            </div>
+        <div class="cred-card">
+            <div class="cc-av"><img src="images/1.jpg" alt="Mritunjay Chandra Shekhar, FCS"></div>
+            <div class="cc-badge">FCS 12594 &nbsp;·&nbsp; ICSI Member</div>
+            <div class="cc-name">Mritunjay Chandra Shekhar</div>
+            <div class="cc-role">Proprietor, MSA Professional · New Delhi</div>
+            <div class="cc-stats">
+                <div class="cc-stat"><div class="cc-stat-n" data-count="22" data-suffix="+">22+</div><div class="cc-stat-l">Years Experience</div></div>
+                <div class="cc-stat"><div class="cc-stat-n" data-count="150" data-suffix="+">150+</div><div class="cc-stat-l">Clients Served</div></div>
+                <div class="cc-stat"><div class="cc-stat-n" data-count="12" data-suffix="+">12+</div><div class="cc-stat-l">Countries</div></div>
+                <div class="cc-stat"><div class="cc-stat-n" data-count="100" data-suffix="%">100%</div><div class="cc-stat-l">Satisfaction</div></div>
+            </div>
+            <a href="https://wa.me/918076567045" target="_blank" rel="noopener" class="cc-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Chat on WhatsApp
+            </a>
+        </div>
+        </div><!-- end hero-right-wrap -->
+    </div>
+</section>
 
-        <!-- Our Approach -->
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">Our Approach</h2>
-                <p class="section-subtitle">How we work with you to ensure seamless corporate compliance and governance.
-                </p>
-                <span class="accent-line"></span>
+<!-- ── PILLARS ── -->
+<section class="sec soft">
+    <div class="wrap">
+        <div class="pillars stagger">
+            <div class="pillar">
+                <div class="p-icon">
+                    <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h3>Regulatory Expertise</h3>
+                <p>Deep knowledge of the Companies Act, SEBI regulations, FEMA, and all applicable statutory frameworks governing Indian businesses.</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Step 1</span>
-                        <h3>Initial Consultation</h3>
-                        <p>We begin with a detailed consultation to understand your business requirements, compliance
-                            status, and specific challenges.</p>
-                    </div>
+            <div class="pillar">
+                <div class="p-icon">
+                    <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Step 2</span>
-                        <h3>Assessment & Planning</h3>
-                        <p>Our team conducts a comprehensive assessment and creates a tailored compliance roadmap for
-                            your organization.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Step 3</span>
-                        <h3>Implementation</h3>
-                        <p>We implement the agreed strategy, handling all necessary filings, documentation, and
-                            compliance procedures.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Step 4</span>
-                        <h3>Ongoing Support</h3>
-                        <p>Continuous monitoring, timely updates, and proactive advisory to keep your business compliant
-                            with evolving regulations.</p>
-                    </div>
-                </div>
+                <h3>Timely Compliance</h3>
+                <p>Zero-lapse compliance tracking with a proactive calendar — every ROC filing, annual return, and board requirement handled on schedule.</p>
             </div>
-        </section>
+            <div class="pillar">
+                <div class="p-icon">
+                    <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <h3>Personalised Approach</h3>
+                <p>Every client gets direct access to FCS Mritunjay Chandra Shekhar — not a junior associate — ensuring consistent, senior-level attention.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <!-- IPO Support -->
-        <!-- <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">Specialized IPO & Listing Support</h2>
-                <p class="section-subtitle">Comprehensive assistance for companies planning to go public or get listed
-                    on stock exchanges.</p>
-                <span class="accent-line"></span>
-            </div>
-            <div class="image-text-section">
-                <div class="image-container">
-                    <img src="/api/placeholder/600/400" alt="IPO Advisory Services">
-                </div>
-                <div class="content-box">
-                    <h3 class="content-title">End-to-End IPO Assistance</h3>
-                    <p>Our team provides comprehensive support throughout the IPO process, ensuring regulatory
-                        compliance and smooth transition to a publicly listed company.</p>
-                    <ul class="content-list">
-                        <li>Pre-IPO readiness assessment</li>
-                        <li>Corporate restructuring for listing</li>
-                        <li>SEBI compliance management</li>
-                        <li>Drafting of offer documents</li>
-                        <li>Coordination with regulators and exchanges</li>
-                        <li>Post-listing compliance setup</li>
-                    </ul>
-                </div>
-            </div>
-        </section> -->
+<!-- ── SERVICES ── -->
+<section class="sec" id="services">
+    <div class="wrap">
+        <div class="shead">
+            <div class="slabel">What We Do</div>
+            <h2 class="stitle">Our Core Services</h2>
+            <p class="sdesc">Comprehensive company secretarial support across every stage of your business lifecycle.</p>
+        </div>
+        <div class="services-grid stagger">
+            <div class="svc"><div class="svc-num">01</div><div class="svc-icon">📝</div><h3>Company Formation</h3><p>End-to-end incorporation for Private Limited, LLP, OPC, Section 8, and more — including overseas formation in 12+ countries.</p><ul><li>Name approval and reservation</li><li>Drafting MOA and AOA</li><li>Filing incorporation documents</li><li>Post-incorporation compliances</li></ul></div>
+            <div class="svc"><div class="svc-num">02</div><div class="svc-icon">⚖️</div><h3>Statutory Compliance</h3><p>Full compliance management against the Companies Act, SEBI, ROC, and all applicable statutory requirements.</p><ul><li>Annual compliance calendar</li><li>ROC filings and returns</li><li>Statutory registers maintenance</li><li>Regulatory updates and advisory</li></ul></div>
+            <div class="svc"><div class="svc-num">03</div><div class="svc-icon">🏢</div><h3>Corporate Governance</h3><p>Best-practice governance frameworks for boards, committees, and decision-making structures.</p><ul><li>Board meeting procedures</li><li>Minutes and resolutions</li><li>Governance structure development</li><li>Director training and advisory</li></ul></div>
+            <div class="svc"><div class="svc-num">04</div><div class="svc-icon">📊</div><h3>Corporate Restructuring</h3><p>Strategic advisory and execution for mergers, acquisitions, demergers, and internal reorganisations.</p><ul><li>Scheme of arrangement</li><li>Due diligence coordination</li><li>Regulatory approvals (NCLT/ROC)</li><li>Post-restructuring compliance</li></ul></div>
+            <div class="svc"><div class="svc-num">05</div><div class="svc-icon">📈</div><h3>Foreign Investment (FEMA)</h3><p>FEMA compliance, FDI/ODI advisory, and RBI filings for cross-border investments and overseas expansion.</p><ul><li>FDI compliance advisory</li><li>RBI filings and approvals</li><li>ODI formalities</li><li>Annual FEMA compliance reporting</li></ul></div>
+            <div class="svc"><div class="svc-num">06</div><div class="svc-icon">🔍</div><h3>Legal Due Diligence</h3><p>Comprehensive corporate due diligence for transactions, fundraising, and regulatory risk assessment.</p><ul><li>Corporate documentation review</li><li>Compliance status verification</li><li>Risk identification and reporting</li><li>Transaction advisory support</li></ul></div>
+            <div class="svc"><div class="svc-num">07</div><div class="svc-icon">™️</div><h3>Trademark Registration</h3><p>End-to-end trademark filing, prosecution, and portfolio management to protect your brand identity under the Trade Marks Act.</p><ul><li>Trademark search and availability check</li><li>Filing with the Trade Marks Registry</li><li>Objection and opposition response</li><li>Trademark renewal and maintenance</li></ul></div>
+        </div>
+    </div>
+</section>
 
-        <!-- FAQ -->
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Answers to common questions</p>
-                <span class="accent-line"></span>
+<!-- ── MID CTA ── -->
+<section class="sec" style="padding-top:0;">
+    <div class="wrap">
+        <div class="mid-cta">
+            <div>
+                <h2>Ready to simplify your compliance?</h2>
+                <p>Get a free 30-minute consultation with FCS Mritunjay Chandra Shekhar. We will review your compliance position and map exactly what your business needs.</p>
             </div>
-            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
-                <div class="faq-item"
-                    style="border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.3s ease;"
-                    onmouseover="this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='none'">
-                    <div class="faq-question"
-                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; background-color: #f8f9fa; transition: background-color 0.3s ease;"
-                        onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#f8f9fa'"
-                        onclick="toggleFAQ(this)">
-                        <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #333; flex: 1; padding-right: 20px;">
-                            What is the role of a Company Secretary in India?</h3>
-                        <div class="faq-arrow"
-                            style="font-size: 18px; color: #666; transition: transform 0.3s ease; user-select: none;">▼</div>
-                    </div>
-                    <div class="faq-answer"
-                        style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; background-color: #fff;">
-                        <p style="margin: 0; line-height: 1.6; color: #555;">A Company Secretary in India serves as a key
-                            managerial personnel responsible for ensuring
-                            compliance with various corporate laws, maintaining statutory records, facilitating board
-                            meetings, and acting as a liaison between the company and regulatory authorities like MCA,
-                            SEBI, and ROC.</p>
-                    </div>
-                </div>
-        
-                <div class="faq-item"
-                    style="border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.3s ease;"
-                    onmouseover="this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='none'">
-                    <div class="faq-question"
-                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; background-color: #f8f9fa; transition: background-color 0.3s ease;"
-                        onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#f8f9fa'"
-                        onclick="toggleFAQ(this)">
-                        <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #333; flex: 1; padding-right: 20px;">How
-                            can MSA Professional help my business?</h3>
-                        <div class="faq-arrow"
-                            style="font-size: 18px; color: #666; transition: transform 0.3s ease; user-select: none;">▼</div>
-                    </div>
-                    <div class="faq-answer"
-                        style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; background-color: #fff;">
-                        <p style="margin: 0; line-height: 1.6; color: #555;">MSA Professional offers a comprehensive range of
-                            company secretary services including company
-                            formation, statutory compliance, corporate governance, and specialized advisory for IPOs and
-                            foreign investments. Our expert team ensures that your business remains compliant with all
-                            regulatory requirements while providing strategic guidance to enhance operational efficiency.</p>
-                    </div>
-                </div>
-        
-                <div class="faq-item"
-                    style="border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.3s ease;"
-                    onmouseover="this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='none'">
-                    <div class="faq-question"
-                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; background-color: #f8f9fa; transition: background-color 0.3s ease;"
-                        onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='#f8f9fa'"
-                        onclick="toggleFAQ(this)">
-                        <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #333; flex: 1; padding-right: 20px;">Is
-                            it mandatory for my company to appoint a Company Secretary?</h3>
-                        <div class="faq-arrow"
-                            style="font-size: 18px; color: #666; transition: transform 0.3s ease; user-select: none;">▼</div>
-                    </div>
-                    <div class="faq-answer"
-                        style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; background-color: #fff;">
-                        <p style="margin: 0; line-height: 1.6; color: #555;">Under the Companies Act, 2013, every listed company
-                            and certain classes of unlisted companies
-                            must appoint a qualified Company Secretary as a Key Managerial Personnel.</p>
-                    </div>
+            <div class="mid-cta-btns">
+                <a href="#contact" class="btn-amber">Schedule Free Consultation</a>
+                <a href="https://wa.me/918076567045" target="_blank" rel="noopener" class="btn-wh">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PHOTO STRIP ── -->
+<section class="photo-strip-sec">
+    <div class="photo-strip-inner">
+        <div class="photo-strip-card">
+            <img src="images/3.jpg" alt="Legal documentation and compliance review" loading="lazy">
+            <div class="photo-strip-caption">Meticulous in Every Detail</div>
+        </div>
+        <div class="photo-strip-card">
+            <img src="images/4.jpg" alt="Expert corporate advisory consultation" loading="lazy">
+            <div class="photo-strip-caption">Advisory That Moves With You</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="sec" id="about">
+    <div class="wrap">
+        <div class="about-wrap reveal">
+            <div class="about-img-col">
+                <img src="images/1.jpg" alt="FCS Mritunjay Chandra Shekhar" class="about-photo">
+                <div class="about-badge">
+                    <div class="about-badge-num">22+</div>
+                    <div class="about-badge-lbl">Years of Practice</div>
                 </div>
             </div>
-        </section>
-        
-        <script>
-            function toggleFAQ(questionElement) {
-                const faqItem = questionElement.parentElement;
-                const faqAnswer = questionElement.nextElementSibling;
-                const arrow = questionElement.querySelector('.faq-arrow');
+            <div class="about-right">
+                <div class="shead" style="text-align:left;margin-bottom:1rem;">
+                    <div class="slabel" style="justify-content:flex-start;display:flex;">About Us</div>
+                    <h2 class="stitle">Meet FCS Mritunjay<br>Chandra Shekhar</h2>
+                </div>
+                <p style="color:var(--body);line-height:1.8;margin-bottom:.8rem;">A Fellow Member of the Institute of Company Secretaries of India (ICSI No. FCS 12594), Mritunjay Chandra Shekhar brings over two decades of hands-on experience in corporate law, statutory compliance, and regulatory advisory.</p>
+                <p style="color:var(--body);line-height:1.8;margin-bottom:1.2rem;">Based in New Delhi, MSA Professional has served 150+ businesses — from startups and SMEs to listed enterprises — across industries ranging from Telecom and Real Estate to International Trade and Manufacturing. Our practice spans 12+ countries, offering seamless cross-border compliance support.</p>
+                <div class="about-cred-list">
+                    <span class="about-cred-tag">FCS 12594 · ICSI Fellow</span>
+                    <span class="about-cred-tag">Companies Act 2013</span>
+                    <span class="about-cred-tag">SEBI Regulations</span>
+                    <span class="about-cred-tag">FEMA / FDI Expert</span>
+                    <span class="about-cred-tag">Corporate Restructuring</span>
+                    <span class="about-cred-tag">Trademark Law</span>
+                </div>
+                <div class="about-stats-row">
+                    <div class="about-stat"><div class="about-stat-n" data-count="150" data-suffix="+">150+</div><div class="about-stat-l">Clients Served</div></div>
+                    <div class="about-stat"><div class="about-stat-n" data-count="12" data-suffix="+">12+</div><div class="about-stat-l">Countries</div></div>
+                    <div class="about-stat"><div class="about-stat-n" data-count="500" data-suffix="+">500+</div><div class="about-stat-l">Filings Done</div></div>
+                </div>
 
-                // Close other open FAQ items (optional - remove this section if you want multiple items open)
-                const allFaqItems = document.querySelectorAll('.faq-item');
-                allFaqItems.forEach(item => {
-                    if (item !== faqItem) {
-                        const otherAnswer = item.querySelector('.faq-answer');
-                        const otherArrow = item.querySelector('.faq-arrow');
-                        otherAnswer.style.maxHeight = '0';
-                        otherAnswer.style.padding = '0 20px';
-                        otherArrow.style.transform = 'rotate(0deg)';
-                    }
-                });
+                <!-- Quick Inquiry Form -->
+                <div class="about-form-wrap">
+                    <h4>Send a Quick Inquiry</h4>
+                    <form action="https://formsubmit.co/shekhar@msaprofessional.com" method="POST">
+                        <input type="hidden" name="_subject" value="Quick Inquiry – MSA Professional">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <div class="about-form-row">
+                            <div class="fg"><label>Your Name *</label><input type="text" name="name" required placeholder="Full name"></div>
+                            <div class="fg"><label>Phone *</label><input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX"></div>
+                        </div>
+                        <div class="fg" style="margin-top:.8rem;"><label>Email *</label><input type="email" name="email" required placeholder="you@company.com"></div>
+                        <div class="fg" style="margin-top:.8rem;"><label>How can we help?</label><textarea name="message" rows="3" placeholder="Briefly describe your requirement…"></textarea></div>
+                        <button type="submit" class="form-submit" style="margin-top:1rem;">Send Inquiry →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                // Toggle current item
-                if (faqAnswer.style.maxHeight === '0px' || faqAnswer.style.maxHeight === '') {
-                    // Open
-                    faqAnswer.style.maxHeight = '200px';
-                    faqAnswer.style.padding = '20px';
-                    arrow.style.transform = 'rotate(180deg)';
-                } else {
-                    // Close
-                    faqAnswer.style.maxHeight = '0';
-                    faqAnswer.style.padding = '0 20px';
-                    arrow.style.transform = 'rotate(0deg)';
+<!-- ── PRIVACY MODAL ── -->
+<div class="priv-overlay" id="privOverlay" onclick="if(event.target===this)closePrivacy()">
+    <div class="priv-box">
+        <div class="priv-head">
+            <h3>Privacy Policy</h3>
+            <button class="priv-close" onclick="closePrivacy()">✕</button>
+        </div>
+        <div class="priv-body">
+            <p><strong>Last updated:</strong> September 2026</p>
+            <h4>1. Information We Collect</h4>
+            <p>When you submit an inquiry or contact form on this website, we collect your name, email address, phone number, company name, and the nature of your inquiry. We also collect standard web analytics data (page views, browser type) through cookies.</p>
+            <h4>2. How We Use Your Information</h4>
+            <p>The information you provide is used solely to respond to your inquiry, provide the services you have requested, send you compliance updates or newsletters (only if you opt in), and improve the quality of our services.</p>
+            <h4>3. Sharing of Information</h4>
+            <p>MSA Professional does not sell, trade, or transfer your personally identifiable information to third parties. Your information may be disclosed only if required by law or to protect our rights and property.</p>
+            <h4>4. Data Security</h4>
+            <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
+            <h4>5. Cookies</h4>
+            <p>This website uses cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings, though some features may not function correctly.</p>
+            <h4>6. Contact Information</h4>
+            <p>If you have any questions regarding this privacy policy, please contact us at <a href="mailto:shekhar@msaprofessional.com" style="color:var(--blue);">shekhar@msaprofessional.com</a> or call <a href="tel:+918076567045" style="color:var(--blue);">+91 807 656 7045</a>.</p>
+            <h4>7. Changes to This Policy</h4>
+            <p>We reserve the right to update this privacy policy at any time. Changes will be posted on this page with an updated date.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ── APPROACH ── -->
+<section class="sec soft">
+    <div class="wrap">
+        <div class="shead">
+            <div class="slabel">How We Work</div>
+            <h2 class="stitle">Our Approach</h2>
+            <p class="sdesc">A structured four-step process that keeps you informed and compliant at every stage.</p>
+        </div>
+        <div class="approach-grid stagger">
+            <div class="step"><div class="step-num">01</div><div class="step-bar"></div><h3>Initial Consultation</h3><p>A detailed discussion to understand your business structure, current compliance status, and specific challenges.</p></div>
+            <div class="step"><div class="step-num">02</div><div class="step-bar"></div><h3>Assessment & Planning</h3><p>A comprehensive compliance audit followed by a tailored roadmap specific to your industry and obligations.</p></div>
+            <div class="step"><div class="step-num">03</div><div class="step-bar"></div><h3>Implementation</h3><p>We handle all filings, documentation, and regulatory submissions — you stay informed without the administrative burden.</p></div>
+            <div class="step"><div class="step-num">04</div><div class="step-bar"></div><h3>Ongoing Support</h3><p>Continuous monitoring, proactive alerts, and advisory as regulations evolve — keeping your business perpetually compliant.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="sec dark">
+    <div class="wrap">
+        <div class="shead">
+            <div class="slabel lt">Client Stories</div>
+            <h2 class="stitle lt">What Our Clients Say</h2>
+            <p class="sdesc lt">Trusted by businesses across telecom, real estate, retail, and energy for over two decades.</p>
+        </div>
+        <div class="t-carousel reveal">
+        <div class="t-track" id="tTrack">
+            <div class="t-slide"><div class="tcard">
+                <div class="tcard-q">"</div>
+                <div class="tcard-stars">★★★★★</div>
+                <p class="tcard-text">MSA Professional has been managing our annual ROC compliances and board documentation for years. The precision and deep understanding of the Companies Act is exceptional. Mritunjay ji is always reachable — a rare quality in this field.</p>
+                <div class="tcard-author"><div class="tcard-av">RS</div><div><div class="tcard-name">R M Sumit</div><div class="tcard-role">Company Secretary · MTNL, Telecom</div></div></div>
+            </div></div>
+            <div class="t-slide"><div class="tcard">
+                <div class="tcard-q">"</div>
+                <div class="tcard-stars">★★★★★</div>
+                <p class="tcard-text">Corporate restructuring in real estate involves complex NCLT, ROC and RERA approvals. MSA Professional navigated every layer without a single deadline missed. Their expertise in corporate matters is outstanding.</p>
+                <div class="tcard-author"><div class="tcard-av">AN</div><div><div class="tcard-name">Amit Narayan</div><div class="tcard-role">TARC Ltd. · Real Estate</div></div></div>
+            </div></div>
+            <div class="t-slide"><div class="tcard">
+                <div class="tcard-q">"</div>
+                <div class="tcard-stars">★★★★★</div>
+                <p class="tcard-text">Navigating regulatory licenses for an Ayurveda retail brand is uniquely complex. MSA Professional mapped every requirement and managed the filings seamlessly — our operations stayed compliant through rapid national expansion.</p>
+                <div class="tcard-author"><div class="tcard-av">RK</div><div><div class="tcard-name">Ravi Kumar</div><div class="tcard-role">Kama Ayurveda · Retail Trade</div></div></div>
+            </div></div>
+            <div class="t-slide"><div class="tcard">
+                <div class="tcard-q">"</div>
+                <div class="tcard-stars">★★★★★</div>
+                <p class="tcard-text">The power sector has some of India's most demanding compliance mandates. MSA Professional built our entire compliance framework and has maintained a zero-lapse record for three years running. Peace of mind is priceless.</p>
+                <div class="tcard-author"><div class="tcard-av">KA</div><div><div class="tcard-name">Kapil Attri</div><div class="tcard-role">Eastman Group · Power &amp; Energy</div></div></div>
+            </div></div>
+            <div class="t-slide"><div class="tcard">
+                <div class="tcard-q">"</div>
+                <div class="tcard-stars">★★★★★</div>
+                <p class="tcard-text">Mritunjay was instrumental in the detailed planning and execution of our overseas offices in UAE, Singapore, and Nigeria — handling everything from company registrations to banking formalities in record time, ensuring our business was never affected. He is detail-oriented, practical, and an expert in corporate laws. Cheerful at work and at his best under challenging circumstances.</p>
+                <div class="tcard-author"><div class="tcard-av">MD</div><div><div class="tcard-name">Manas Das</div><div class="tcard-role">Lubricant Manufacturer &amp; Exporter · Ex-Eastman Auto &amp; Power Ltd.</div></div></div>
+            </div></div>
+            <div class="t-slide"><div class="tcard">
+                <div class="tcard-q">"</div>
+                <div class="tcard-stars">★★★★★</div>
+                <p class="tcard-text">Truly amazing and impressive legal professional — a perfectionist in his work. I have seen very few CS professionals heading departments spanning Indirect Tax, Legal, Litigation, Contract Management, IPR, Corporate Secretarial, and International Transactions the way Mr. Shekhar does. His knowledge is both deep and broad, his organisational ability is superb, and he is an outstanding leader and excellent appraiser of talent.</p>
+                <div class="tcard-author"><div class="tcard-av">AS</div><div><div class="tcard-name">Awanish Srivastava</div><div class="tcard-role">Managing Partner, Naks &amp; Associates · Vice Chairperson ICSI-NIRC</div></div></div>
+            </div></div>
+            <div class="t-slide"><div class="tcard">
+                <div class="tcard-q">"</div>
+                <div class="tcard-stars">★★★★★</div>
+                <p class="tcard-text">Mritunjay showcases the importance of a strong theoretical foundation in comprehending complex laws. A CS by profession, he carries genuine practical business sense alongside his legal expertise. I have admired his simplicity and clarity of thought since the very first day I interacted with him — rare qualities in any professional.</p>
+                <div class="tcard-author"><div class="tcard-av">JK</div><div><div class="tcard-name">Jaspal Singh Kahlon</div><div class="tcard-role">COO, Orane International · SaaS &amp; Education</div></div></div>
+            </div></div>
+        </div><!-- end t-track -->
+        <div class="t-arrows">
+            <button class="t-arrow" id="tPrev">&#8592;</button>
+            <button class="t-arrow" id="tNext">&#8594;</button>
+        </div>
+        <div class="t-dots" id="tDots"></div>
+        </div><!-- end t-carousel -->
+    </div>
+</section>
+
+<!-- ── CS PROFILE ── -->
+<section class="sec">
+    <div class="wrap">
+        <div class="shead">
+            <div class="slabel">Meet the Expert</div>
+            <h2 class="stitle">Principal Company Secretary</h2>
+        </div>
+        <div class="cs-grid">
+            <div class="cs-card">
+                <div class="cs-av">MCS</div>
+                <div class="cs-fcs">FCS 12594 &nbsp;·&nbsp; ICSI</div>
+                <div class="cs-nm">Mritunjay Chandra Shekhar</div>
+                <div class="cs-rl">Fellow CS · Proprietor, MSA Professional</div>
+                <div class="cs-stats">
+                    <div class="cs-s"><div class="cs-s-n">22+</div><div class="cs-s-l">Years Experience</div></div>
+                    <div class="cs-s"><div class="cs-s-n">150+</div><div class="cs-s-l">Clients Served</div></div>
+                    <div class="cs-s"><div class="cs-s-n">12+</div><div class="cs-s-l">Countries</div></div>
+                    <div class="cs-s"><div class="cs-s-n">100%</div><div class="cs-s-l">Satisfaction</div></div>
+                </div>
+                <div class="cs-links">
+                    <a href="https://www.linkedin.com/in/mritunjay-chandra-shekhar-44595b24/" target="_blank" rel="noopener" class="cs-lnk">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn Profile
+                    </a>
+                    <a href="https://taxguru.in/author/mritunjayshekhar/" target="_blank" rel="noopener" class="cs-lnk">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+                        TaxGuru Articles
+                    </a>
+                    <a href="tel:+918076567045" class="cs-lnk">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                        +91 807 656 7045
+                    </a>
+                </div>
+            </div>
+            <div class="cs-right">
+                <p class="cs-bio">A seasoned Fellow Company Secretary with 22 years of experience, Mritunjay Chandra Shekhar has built MSA Professional on a foundation of integrity, precision, and genuine client partnership. He specialises in company secretarial services, corporate governance, regulatory compliance, and cross-border business structuring — serving Private Limited, Public Limited, LLP, and Non-Profit organisations across sectors including telecom, real estate, energy, retail, and manufacturing.</p>
+                <p class="cs-bio">Under his leadership, MSA Professional has facilitated company formation and bank account opening across 12+ countries including Dubai, Singapore, Hong Kong, the USA, the Netherlands, Malaysia, and several African nations — providing a truly end-to-end solution for businesses expanding internationally.</p>
+                <div class="cs-box">
+                    <h4>Core Specialisations</h4>
+                    <div class="cs-tags">
+                        <span class="cs-tag">Company Secretarial Services</span>
+                        <span class="cs-tag">Corporate Governance</span>
+                        <span class="cs-tag">FEMA & FDI Compliance</span>
+                        <span class="cs-tag">Corporate Restructuring</span>
+                        <span class="cs-tag">Overseas Incorporation</span>
+                        <span class="cs-tag">Legal Due Diligence</span>
+                        <span class="cs-tag">Trademark Registration</span>
+                        <span class="cs-tag">Strategic Advisory</span>
+                    </div>
+                </div>
+                <div class="cs-box">
+                    <h4>International Presence</h4>
+                    <p class="cs-countries">Company formation and regulatory advisory across <strong>Dubai (UAE) · Singapore · Hong Kong · USA · Netherlands · Malaysia · Togo · Ghana · Kenya · Nigeria · Panama · Djibouti</strong> — and more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="sec soft">
+    <div class="wrap">
+        <div class="shead" style="text-align:center;">
+            <div class="slabel" style="justify-content:center;display:flex;">FAQs</div>
+            <h2 class="stitle">Frequently Asked Questions</h2>
+            <p class="sdesc" style="margin:0 auto;">Common questions about company secretary services in India.</p>
+        </div>
+        <div class="faq-list">
+            <div class="fi">
+                <div class="fi-q" onclick="toggleFAQ(this)"><h3>What is the role of a Company Secretary in India?</h3><div class="fi-icon">+</div></div>
+                <div class="fi-a"><div class="fi-a-inner">A Company Secretary in India serves as key managerial personnel responsible for ensuring compliance with corporate laws, maintaining statutory records, facilitating board meetings, and acting as a liaison between the company and regulatory authorities — MCA, SEBI, and ROC.</div></div>
+            </div>
+            <div class="fi">
+                <div class="fi-q" onclick="toggleFAQ(this)"><h3>How can MSA Professional help my business?</h3><div class="fi-icon">+</div></div>
+                <div class="fi-a"><div class="fi-a-inner">MSA Professional provides end-to-end company secretarial services: company formation, statutory compliance management, corporate governance advisory, FEMA/FDI compliance, corporate restructuring, and legal due diligence — all delivered personally by FCS Mritunjay Chandra Shekhar (ICSI No. FCS 12594).</div></div>
+            </div>
+            <div class="fi">
+                <div class="fi-q" onclick="toggleFAQ(this)"><h3>Is it mandatory to appoint a Company Secretary?</h3><div class="fi-icon">+</div></div>
+                <div class="fi-a"><div class="fi-a-inner">Under the Companies Act, 2013, every listed company and certain unlisted public companies (paid-up capital ₹10 crore or more) must appoint a whole-time Company Secretary as Key Managerial Personnel. Even companies not legally required to appoint one benefit greatly from professional CS services.</div></div>
+            </div>
+            <div class="fi">
+                <div class="fi-q" onclick="toggleFAQ(this)"><h3>Do you assist with company formation outside India?</h3><div class="fi-icon">+</div></div>
+                <div class="fi-a"><div class="fi-a-inner">Yes. MSA Professional has extensive experience in cross-border company formation across 12+ countries including Dubai, Singapore, Hong Kong, USA, Netherlands, Malaysia, and several African nations. We handle end-to-end incorporation, bank account opening, and all regulatory filings.</div></div>
+            </div>
+            <div class="fi">
+                <div class="fi-q" onclick="toggleFAQ(this)"><h3>What is your fee structure?</h3><div class="fi-icon">+</div></div>
+                <div class="fi-a"><div class="fi-a-inner">Fees are customised based on the scope of services required. We offer both one-time engagement fees for specific filings/transactions and annual retainer packages for ongoing compliance management. Contact us for a free initial consultation and a transparent, no-obligation quote.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── COMPLIANCE CALENDAR ── -->
+<section class="sec" id="calendar">
+    <div class="wrap">
+        <div class="shead reveal">
+            <div class="slabel">Plan Ahead</div>
+            <h2 class="stitle">Compliance Calendar</h2>
+            <p class="sdesc">Key regulatory deadlines across MCA, SEBI, FEMA and Tax for FY 2026–27 — never miss a filing again.</p>
+        </div>
+        <div class="cal-wrap reveal">
+            <!-- Upcoming strip -->
+            <div class="cal-upcoming">
+                <div class="cal-upcoming-lbl">Next Deadlines</div>
+                <div class="cal-urgent-row" id="calUrgent">
+                    <div class="cal-urgent"><div class="cal-urgent-days">–<span>days away</span></div><div class="cal-urgent-title">Loading…</div></div>
+                </div>
+            </div>
+            <!-- Main calendar -->
+            <div class="cal-main">
+                <div class="cal-header">
+                    <div class="cal-nav">
+                        <button class="cal-nav-btn" id="calPrev">&#8592;</button>
+                        <div class="cal-month-title" id="calMonthTitle">September 2026</div>
+                        <button class="cal-nav-btn" id="calNext">&#8594;</button>
+                    </div>
+                    <div class="cal-filters" id="calFilters">
+                        <button class="cal-filter active" data-cat="all">All</button>
+                        <button class="cal-filter" data-cat="mca">MCA</button>
+                        <button class="cal-filter" data-cat="sebi">SEBI</button>
+                        <button class="cal-filter" data-cat="fema">FEMA</button>
+                        <button class="cal-filter" data-cat="tax">Tax</button>
+                    </div>
+                </div>
+                <div class="cal-events" id="calEvents"></div>
+                <div class="cal-footer">
+                    <div class="cal-legend">
+                        <span class="cal-legend-item"><span class="cal-legend-dot" style="background:#1250D6"></span>MCA</span>
+                        <span class="cal-legend-item"><span class="cal-legend-dot" style="background:#6B21A8"></span>SEBI</span>
+                        <span class="cal-legend-item"><span class="cal-legend-dot" style="background:#B45309"></span>FEMA</span>
+                        <span class="cal-legend-item"><span class="cal-legend-dot" style="background:#065F46"></span>Tax</span>
+                    </div>
+                    <span>FY 2026–27</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── REGULATORY UPDATES ── -->
+<section class="sec soft" id="updates">
+    <div class="wrap">
+        <div class="shead reveal">
+            <div class="slabel">Stay Informed</div>
+            <h2 class="stitle">Regulatory Updates</h2>
+            <p class="sdesc">Latest circulars, notifications and press releases from India's key regulatory bodies — live from official sources.</p>
+        </div>
+        <div class="reg-tabs reveal">
+            <div class="reg-tab-btns" id="regTabBtns">
+                <button class="reg-tab-btn active" data-src="mca" data-static="true" data-label="MCA" data-color="#1250D6"
+                    data-portals='[{"name":"MCA21 Portal","url":"https://www.mca.gov.in","desc":"Company filings, ROC search, e-forms"},{"name":"ICSI – Institute of CS","url":"https://www.icsi.edu","desc":"Circulars, guidance notes, e-learning"},{"name":"MCA Circulars","url":"https://www.mca.gov.in/content/mca/global/en/acts-rules/ebooks/general-circular.html","desc":"Latest general circulars & notifications"},{"name":"NCLT","url":"https://nclt.gov.in","desc":"National Company Law Tribunal orders"}]'>MCA</button>
+                <button class="reg-tab-btn" data-src="sebi" data-feed="https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms" data-label="SEBI" data-color="#6B21A8" data-url="https://www.sebi.gov.in">SEBI <span class="reg-dot"></span></button>
+                <button class="reg-tab-btn" data-src="rbi" data-feed="https://economictimes.indiatimes.com/industry/banking/finance/banking/rssfeeds/13358259.cms" data-label="RBI / FEMA" data-color="#B45309" data-url="https://www.rbi.org.in">RBI / FEMA <span class="reg-dot"></span></button>
+                <button class="reg-tab-btn" data-src="tax" data-static="true" data-label="Tax / GST" data-color="#065F46"
+                    data-portals='[{"name":"Income Tax Portal","url":"https://www.incometax.gov.in","desc":"ITR filing, notices, refund status"},{"name":"GST Portal","url":"https://www.gst.gov.in","desc":"GSTIN search, returns, e-way bill"},{"name":"CBDT Circulars","url":"https://www.incometax.gov.in/iec/foportal/help/useful-links","desc":"Central Board of Direct Taxes notifications"},{"name":"CBIC Notifications","url":"https://www.cbic.gov.in/htdocs-cbec/gst/index","desc":"GST circulars & custom duty updates"}]'>Tax / GST</button>
+                <button class="reg-tab-btn" data-src="pib" data-feed="https://www.thehindu.com/business/feeder/default.rss" data-label="Business / Policy" data-color="#9D174D" data-url="https://pib.gov.in">Policy <span class="reg-dot"></span></button>
+            </div>
+            <div class="reg-content" id="regContent">
+                <div class="reg-shimmer">
+                    <div class="reg-shimmer-row"></div>
+                    <div class="reg-shimmer-row"></div>
+                    <div class="reg-shimmer-row"></div>
+                    <div class="reg-shimmer-row"></div>
+                    <div class="reg-shimmer-row"></div>
+                </div>
+            </div>
+            <div class="reg-footer">
+                <span class="reg-live" id="regLiveLabel">Live from official sources</span>
+                <span id="regLastUpdated" style="font-size:.72rem;color:var(--muted);"></span>
+                <a href="#" id="regSourceLink" target="_blank" rel="noopener">Visit official site →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="sec" id="contact">
+    <div class="wrap">
+        <div class="shead">
+            <div class="slabel">Get In Touch</div>
+            <h2 class="stitle">Let's Talk</h2>
+            <p class="sdesc">Reach out for a free initial consultation. We typically respond within 2 business hours.</p>
+        </div>
+        <div class="contact-grid">
+            <div>
+                <div class="ci-block">
+                    <div class="ci">
+                        <div class="ci-ico"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                        <div><div class="ci-lbl">Office</div><div class="ci-val">311-B, Vikas Surya Galaxy, Sector-4, Dwarka<br>New Delhi – 110071, India</div></div>
+                    </div>
+                    <div class="ci">
+                        <div class="ci-ico"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.13 19.79 19.79 0 01.15 4.35 2 2 0 012.13 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l1.28-.72a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+                        <div><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:+918076567045">+91 807 656 7045</a><br><a href="tel:+911145565819">+91 11 4556 5819</a></div></div>
+                    </div>
+                    <div class="ci">
+                        <div class="ci-ico"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                        <div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:shekhar@msaprofessional.com">shekhar@msaprofessional.com</a></div></div>
+                    </div>
+                    <div class="ci">
+                        <div class="ci-ico"><svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        <div><div class="ci-lbl">Hours</div><div class="ci-val">Mon – Fri: 10:30 AM – 6:30 PM (IST)</div></div>
+                    </div>
+                </div>
+                <a href="https://wa.me/918076567045" target="_blank" rel="noopener" class="wa-contact" style="margin-top:1.5rem;display:inline-flex;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Chat on WhatsApp Now
+                </a>
+                <div class="map-wrap">
+                    <iframe src="https://maps.google.com/maps?q=Vikas+Surya+Galaxy+Sector+4+Dwarka+New+Delhi+110071&output=embed&z=15" width="100%" height="220" style="border:0;display:block;" loading="lazy" title="MSA Professional Office"></iframe>
+                </div>
+            </div>
+            <div class="form-card">
+                <h3>Send a Message</h3>
+                <p>Tell us about your requirement and we'll get back to you within 2 hours.</p>
+                <form action="https://formsubmit.co/shekhar@msaprofessional.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Enquiry — MSA Professional">
+                    <input type="hidden" name="_next" value="https://msaprofessional.com">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="form-row">
+                        <div class="fg"><label>Your Name *</label><input type="text" name="name" required placeholder="Full name"></div>
+                        <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX"></div>
+                    </div>
+                    <div class="fg"><label>Email Address *</label><input type="email" name="email" required placeholder="you@company.com"></div>
+                    <div class="fg"><label>Service Required</label>
+                        <select name="service">
+                            <option value="">Select a service…</option>
+                            <option>Company Formation (India)</option>
+                            <option>Company Formation (Overseas)</option>
+                            <option>Statutory Compliance</option>
+                            <option>Corporate Governance</option>
+                            <option>Corporate Restructuring</option>
+                            <option>FEMA / Foreign Investment</option>
+                            <option>Legal Due Diligence</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="fg"><label>Message *</label><textarea name="message" rows="4" required placeholder="Briefly describe your requirement…"></textarea></div>
+                    <p class="form-note">By submitting you agree to our <a href="#" onclick="openPrivacy();return false;">Privacy Policy</a>.</p>
+                    <button type="submit" class="form-submit">Send Message →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="ft-brand">
+            <div class="ft-logo">MSA<span>Professional</span></div>
+            <p>Providing comprehensive company secretarial services with integrity, precision, and professionalism since 2018. FCS Mritunjay Chandra Shekhar — ICSI No. FCS 12594.</p>
+            <div class="ft-social">
+                <a href="https://www.linkedin.com/in/mritunjay-chandra-shekhar-44595b24/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://wa.me/918076567045" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href="https://taxguru.in/author/mritunjayshekhar/" target="_blank" rel="noopener" aria-label="TaxGuru">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="ft-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" onclick="openPrivacy();return false;">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="ft-col">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="#services">Company Formation</a></li>
+                <li><a href="#services">Statutory Compliance</a></li>
+                <li><a href="#services">Foreign Investment (FEMA)</a></li>
+                <li><a href="#services">Legal Due Diligence</a></li>
+            </ul>
+        </div>
+        <div class="ft-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+918076567045">+91 807 656 7045</a></li>
+                <li><a href="mailto:shekhar@msaprofessional.com">shekhar@msaprofessional.com</a></li>
+                <li style="color:#5a7a9e;font-size:.84rem;line-height:1.6;">311-B, Vikas Surya Galaxy, Sector-4, Dwarka, New Delhi 110071</li>
+            </ul>
+        </div>
+    </div>
+    <div class="ft-bottom">
+        <span>© 2026 MSA Professional. All Rights Reserved. &nbsp;·&nbsp; FCS Mritunjay Chandra Shekhar &nbsp;·&nbsp; ICSI No. FCS 12594</span>
+        <a href="#" onclick="openPrivacy();return false;">Privacy Policy</a>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/918076567045" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="wa-tip">Chat on WhatsApp</span>
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Back to Top -->
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+    // ── Hamburger ──
+    const ham = document.getElementById('ham');
+    const mobNav = document.getElementById('mobNav');
+    const mobClose = document.getElementById('mobClose');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mobNav.classList.toggle('open'); });
+    mobClose.addEventListener('click', () => { ham.classList.remove('open'); mobNav.classList.remove('open'); });
+    mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mobNav.classList.remove('open'); }));
+
+    // ── Privacy Modal ──
+    function openPrivacy() { document.getElementById('privOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+    function closePrivacy() { document.getElementById('privOverlay').classList.remove('open'); document.body.style.overflow=''; }
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closePrivacy(); });
+
+    // ── FAQ ──
+    function toggleFAQ(qEl) {
+        const item = qEl.parentElement;
+        const ans = qEl.nextElementSibling;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.fi').forEach(f => { f.classList.remove('open'); f.querySelector('.fi-a').style.maxHeight = '0'; });
+        if (!isOpen) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    }
+
+    // ── Scroll Progress Bar ──
+    const progressBar = document.getElementById('scrollProgress');
+    const btt = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const total = document.body.scrollHeight - window.innerHeight;
+        progressBar.style.width = (scrolled / total * 100) + '%';
+        btt.classList.toggle('show', scrolled > 400);
+    });
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+
+    // ── Scroll Reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                // Stagger children if parent has .stagger
+                if (entry.target.classList.contains('stagger')) {
+                    entry.target.querySelectorAll(':scope > *').forEach((child, i) => {
+                        child.style.transitionDelay = (i * 0.1) + 's';
+                        child.classList.add('reveal', 'in');
+                    });
                 }
             }
-        </script>
+        });
+    }, { threshold: 0.12 });
 
+    // Add reveal to section headers, pillars, services, steps, CS section
+    document.querySelectorAll('.shead, .mid-cta, .cs-grid, .faq-list, .contact-grid, .form-card').forEach(el => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+    });
+    document.querySelectorAll('.pillar, .svc, .step, .tcard, .fi').forEach(el => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+    });
+    document.querySelectorAll('.stagger, .t-carousel').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal-left, .reveal-right, .reveal-scale, .reveal').forEach(el => revealObserver.observe(el));
 
-        <!-- Contact -->
-        <section id="contact" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <span class="accent-line"></span>
-            </div>
-            <div class="image-text-section">
-                <div class="content-box">
-                    <h3>Contact Information</h3>
-                    <p>📍 311-B, Vikas surya Galaxy<br>Sector-4, Dwarka<br>New Delhi - 110071, India</p><br>
-                    <h3>Phone & Email</h3>
-                    <p>📞 +91 95400 43975<br>📞 +91 11 4556 5819</p> <br>
-                    <p>✉️ shekharmritunjay3@gmail.com<br> </p>
-                    <h3>Office Hours</h3>
-                    <p>Mon–Fri: 10:30 AM – 6:30 PM</p>
-                </div>
-                <div class="content-box">
-                    <h3>Send Us a Message</h3>
-                        <form style="max-width:600px;margin:2rem auto;font-family:'Segoe UI',sans-serif;" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-                            <input type="hidden" name="access_key" value="6c92a83a-c5b5-4e47-8d9a-9a7d9c839e87">
-                        <div style="margin-bottom:1rem;">
-                            <input type="text" placeholder="Your Name" style="
-                                                  box-sizing: border-box;
-                                                  width: 100%;
-                                                  padding: 0.8rem 1rem;
-                                                  border-radius: 12px;
-                                                  border: 2px solid rgba(100,116,139,0.3);
-                                                  background-color: #f8fafc;
-                                                  font-size: 1rem;
-                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-                                                "
-                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
-                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';">
-                        </div>
-                    
-                        <div style="margin-bottom:1rem;">
-                            <input type="email" placeholder="Your Email" style="
-                                                  box-sizing: border-box;
-                                                  width: 100%;
-                                                  padding: 0.8rem 1rem;
-                                                  border-radius: 12px;
-                                                  border: 2px solid rgba(100,116,139,0.3);
-                                                  background-color: #f8fafc;
-                                                  font-size: 1rem;
-                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-                                                "
-                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
-                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';">
-                        </div>
-                    
-                        <div style="margin-bottom:1rem;">
-                            <input type="text" placeholder="Subject" style="
-                                                  box-sizing: border-box;
-                                                  width: 100%;
-                                                  padding: 0.8rem 1rem;
-                                                  border-radius: 12px;
-                                                  border: 2px solid rgba(100,116,139,0.3);
-                                                  background-color: #f8fafc;
-                                                  font-size: 1rem;
-                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-                                                "
-                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
-                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';">
-                        </div>
-                    
-                        <div style="margin-bottom:1.5rem;">
-                            <textarea rows="5" placeholder="Your Message" style="
-                                                  box-sizing: border-box;
-                                                  width: 100%;
-                                                  padding: 0.8rem 1rem;
-                                                  border-radius: 12px;
-                                                  border: 2px solid rgba(100,116,139,0.3);
-                                                  background-color: #f8fafc;
-                                                  font-size: 1rem;
-                                                  resize: vertical;
-                                                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-                                                "
-                                onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 8px rgba(99,102,241,0.5)';"
-                                onblur="this.style.borderColor='rgba(100,116,139,0.3)'; this.style.boxShadow='none';"></textarea>
-                        </div>
-                        <div class="antispam" style="display: none;">
-                            <input type="text" name="url" placeholder="Leave this empty">
-                        </div>
-                    
-                        <button type="submit" style="
-                                                display: inline-block;
-                                                border-radius: 30px;
-                                                background-color: #489aec;
-                                                color: #ffffff;
-                                                padding: 0.8rem 1.5rem;
-                                                font-size: 1rem;
-                                                font-weight: 600;
-                                                border: none;
-                                                cursor: pointer;
-                                                transition: background-color 0.3s ease;
-                                              " onmouseover="this.style.backgroundColor='#6366f1';"
-                            onmouseout="this.style.backgroundColor='#489aec';">
-                            Send Message
-                        </button>
-                    
-                    </form>
-                      
-                </div>
-            </div>
-        </section>
+    // ── Animated Counters ──
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.counted) {
+                entry.target.dataset.counted = '1';
+                const target = parseInt(entry.target.dataset.count);
+                const suffix = entry.target.dataset.suffix || '';
+                const duration = 1400;
+                const step = Math.ceil(duration / target);
+                let current = 0;
+                const timer = setInterval(() => {
+                    current = Math.min(current + Math.ceil(target / 40), target);
+                    entry.target.textContent = current + suffix;
+                    if (current >= target) clearInterval(timer);
+                }, step);
+            }
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-    </div>
+    // ── Testimonial Carousel ──
+    (function() {
+        const track = document.getElementById('tTrack');
+        const dotsContainer = document.getElementById('tDots');
+        const slides = track ? Array.from(track.querySelectorAll('.t-slide')) : [];
+        if (!slides.length) return;
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-about">
-                <div class="footer-logo">MSA<span class="accent">Professional</span></div>
-                <p>Providing comprehensive company secretarial services with integrity, precision, and professionalism
-                    since 2018.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="/services.html">Services</a></li>
-                    <li><a href="/projects.html">Projects</a></li>
-                    <li><a href="/projects.html">Testimonials</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Company Incorporation</a></li>
-                    <li><a href="#">Compliance Management</a></li>
-                    <li><a href="#">Annual Filings</a></li>
-                    <li><a href="#">Corporate Restructuring</a></li>
-                    <li><a href="#">Due Diligence</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <p>📍 311-B, Vikas surya Galaxy, Sector-4, Dwarka, New Delhi</p>
-                <p>📞 +91 11 4556 5819</p>
-                <p>✉️ shekharmritunjay3@gmali.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 MSA Professional. All Rights Reserved.</p>
-        </div>
-    </footer>
+        let perView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 769 ? 2 : 1;
+        let current = 0;
+        const total = slides.length;
 
+        function getPerView() {
+            return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 769 ? 2 : 1;
+        }
+
+        function buildDots() {
+            dotsContainer.innerHTML = '';
+            const pages = Math.ceil(total / perView);
+            for (let i = 0; i < pages; i++) {
+                const d = document.createElement('button');
+                d.className = 't-dot' + (i === 0 ? ' active' : '');
+                d.addEventListener('click', () => goTo(i * perView));
+                dotsContainer.appendChild(d);
+            }
+        }
+
+        function updateDots() {
+            const page = Math.floor(current / perView);
+            dotsContainer.querySelectorAll('.t-dot').forEach((d, i) => d.classList.toggle('active', i === page));
+        }
+
+        function goTo(idx) {
+            current = Math.max(0, Math.min(idx, total - perView));
+            const slideW = slides[0].offsetWidth + 24; // width + gap
+            track.style.transform = `translateX(-${current * slideW}px)`;
+            updateDots();
+        }
+
+        buildDots();
+
+        document.getElementById('tPrev').addEventListener('click', () => goTo(current - perView));
+        document.getElementById('tNext').addEventListener('click', () => goTo(current + perView));
+
+        // Auto-play
+        let autoPlay = setInterval(() => goTo((current + perView >= total) ? 0 : current + perView), 5000);
+        track.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        track.parentElement.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(() => goTo((current + perView >= total) ? 0 : current + perView), 5000);
+        });
+
+        // Touch swipe
+        let touchStartX = 0;
+        track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+        track.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) goTo(diff > 0 ? current + perView : current - perView);
+        }, {passive:true});
+
+        window.addEventListener('resize', () => {
+            perView = getPerView();
+            current = 0;
+            buildDots();
+            goTo(0);
+        });
+    })();
+
+    // ── Compliance Calendar ──
+    (function() {
+        const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const today = new Date(); today.setHours(0,0,0,0);
+
+        // Full FY 2026-27 compliance data
+        const events = [
+            // ── MCA ──
+            {date:'2026-04-30',cat:'mca',title:'MSME Form 1',desc:'Half-yearly return for outstanding payments to MSMEs (Oct 2025 – Mar 2026)',penalty:'₹25,000 per day of delay'},
+            {date:'2026-05-30',cat:'mca',title:'LLP Annual Return – Form 11',desc:'Annual return for LLPs for FY 2025-26',penalty:'₹100 per day after due date'},
+            {date:'2026-06-30',cat:'mca',title:'DPT-3 – Return of Deposits',desc:'Return of deposits or outstanding loans for FY 2025-26',penalty:'₹500 per day + prosecution'},
+            {date:'2026-09-30',cat:'mca',title:'AGM – Listed & Unlisted Companies',desc:'Annual General Meeting must be held within 6 months of financial year end (Mar 2026)',penalty:'₹1 lakh + ₹5,000/day; directors liable'},
+            {date:'2026-09-30',cat:'mca',title:'DIR-3 KYC',desc:'Annual KYC for all DIN holders for FY 2025-26',penalty:'DIN deactivation; ₹5,000 reactivation fee'},
+            {date:'2026-10-14',cat:'mca',title:'AOC-4 / AOC-4 XBRL',desc:'Filing of Financial Statements (FY 2025-26) within 30 days of AGM',penalty:'₹200 per day; additional fees on MCA portal'},
+            {date:'2026-10-30',cat:'mca',title:'LLP Form 8 – Financial Statements',desc:'Statement of Account & Solvency for LLPs for FY 2025-26',penalty:'₹100 per day after due date'},
+            {date:'2026-10-31',cat:'mca',title:'MSME Form 1',desc:'Half-yearly return for outstanding payments to MSMEs (Apr – Sep 2026)',penalty:'₹25,000 per day of delay'},
+            {date:'2026-11-14',cat:'mca',title:'MGT-7 / MGT-7A – Annual Return',desc:'Annual Return for companies for FY 2025-26 (within 60 days of AGM)',penalty:'₹200 per day; additional government fees'},
+            {date:'2026-12-31',cat:'mca',title:'ADT-1 – Auditor Appointment',desc:'Intimation of auditor appointment/reappointment at AGM',penalty:'₹300 per day of default'},
+            {date:'2027-01-31',cat:'mca',title:'BEN-2 – Significant Beneficial Owner',desc:'Annual return for Significant Beneficial Ownership declarations',penalty:'Company & officers liable; up to ₹1 lakh fine'},
+            {date:'2027-03-31',cat:'mca',title:'MGT-14 – Board Resolutions',desc:'Filing of board resolutions and agreements requiring MGT-14',penalty:'₹500 per day of default'},
+
+            // ── SEBI ──
+            {date:'2026-07-15',cat:'sebi',title:'Shareholding Pattern – Q1',desc:'Listed companies: Shareholding pattern for April–June 2026',penalty:'₹1,000/day; trading suspension risk'},
+            {date:'2026-07-21',cat:'sebi',title:'Corporate Governance Report – Q1',desc:'Compliance report on corporate governance for Q1 FY 2026-27',penalty:'Fine up to ₹1 crore; suspension of trading'},
+            {date:'2026-07-31',cat:'sebi',title:'Annual Report Submission',desc:'Submission of Annual Report to stock exchanges',penalty:'Penalty as per SEBI LODR regulations'},
+            {date:'2026-10-15',cat:'sebi',title:'Shareholding Pattern – Q2',desc:'Listed companies: Shareholding pattern for July–September 2026',penalty:'₹1,000/day; trading suspension risk'},
+            {date:'2026-10-21',cat:'sebi',title:'Corporate Governance Report – Q2',desc:'Compliance report on corporate governance for Q2 FY 2026-27',penalty:'Fine up to ₹1 crore'},
+            {date:'2026-10-31',cat:'sebi',title:'Half-Yearly Financial Results',desc:'Unaudited standalone & consolidated financial results for H1 FY 2026-27',penalty:'Penalty under SEBI LODR; exchange fine'},
+            {date:'2027-01-15',cat:'sebi',title:'Shareholding Pattern – Q3',desc:'Listed companies: Shareholding pattern for October–December 2026',penalty:'₹1,000/day; trading suspension risk'},
+            {date:'2027-01-21',cat:'sebi',title:'Corporate Governance Report – Q3',desc:'Compliance report on corporate governance for Q3 FY 2026-27',penalty:'Fine up to ₹1 crore'},
+            {date:'2027-02-14',cat:'sebi',title:'Annual Secretarial Compliance Report',desc:'Submission of Annual Secretarial Compliance Report by listed entities',penalty:'Penalty as per SEBI circulars'},
+            {date:'2027-04-15',cat:'sebi',title:'Shareholding Pattern – Q4',desc:'Listed companies: Shareholding pattern for January–March 2027',penalty:'₹1,000/day; trading suspension risk'},
+
+            // ── FEMA ──
+            {date:'2026-07-15',cat:'fema',title:'FLA Return – Foreign Liabilities & Assets',desc:'Annual return on Foreign Liabilities and Assets for FY 2025-26 (RBI)',penalty:'Compounding under FEMA; penalty up to 3× amount'},
+            {date:'2026-07-07',cat:'fema',title:'ECB-2 Return (June 2026)',desc:'Monthly return for External Commercial Borrowings by ECB borrowers',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2026-08-07',cat:'fema',title:'ECB-2 Return (July 2026)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2026-09-07',cat:'fema',title:'ECB-2 Return (August 2026)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2026-10-07',cat:'fema',title:'ECB-2 Return (September 2026)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2026-11-07',cat:'fema',title:'ECB-2 Return (October 2026)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2026-12-07',cat:'fema',title:'ECB-2 Return (November 2026)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2026-12-31',cat:'fema',title:'Annual Performance Report (APR) – ODI',desc:'APR for Indian parties having Overseas Direct Investment (ODI)',penalty:'Compounding under FEMA; penalty up to ₹2 crore'},
+            {date:'2027-01-07',cat:'fema',title:'ECB-2 Return (December 2026)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2027-02-07',cat:'fema',title:'ECB-2 Return (January 2027)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2027-03-07',cat:'fema',title:'ECB-2 Return (February 2027)',desc:'Monthly return for External Commercial Borrowings',penalty:'Penalty under FEMA; RBI compounding'},
+            {date:'2027-03-31',cat:'fema',title:'SOFTEX Form – Software Exporters',desc:'Annual declaration for software export receipts',penalty:'Compounding under FEMA'},
+
+            // ── TAX ──
+            {date:'2026-06-15',cat:'tax',title:'Advance Tax – 1st Instalment (15%)',desc:'15% of estimated tax liability for FY 2026-27',penalty:'1% per month interest u/s 234B & 234C'},
+            {date:'2026-07-15',cat:'tax',title:'TDS Return – Q1 (Apr–Jun 2026)',desc:'Form 24Q / 26Q / 27Q for TDS deducted in Q1 FY 2026-27',penalty:'₹200/day u/s 234E; penalty u/s 271H'},
+            {date:'2026-07-31',cat:'tax',title:'ITR Filing – Non-Audit Cases',desc:'Income Tax Return for individuals, HUFs, firms not requiring audit (FY 2025-26)',penalty:'₹5,000 late fee u/s 234F; interest on tax due'},
+            {date:'2026-09-15',cat:'tax',title:'Advance Tax – 2nd Instalment (45%)',desc:'Cumulative 45% of estimated tax liability for FY 2026-27',penalty:'1% per month interest u/s 234C'},
+            {date:'2026-09-30',cat:'tax',title:'Tax Audit – Form 3CA/3CB & 3CD',desc:'Completion of Tax Audit under Section 44AB for FY 2025-26',penalty:'0.5% of turnover or ₹1.5 lakh, whichever is lower'},
+            {date:'2026-10-15',cat:'tax',title:'TDS Return – Q2 (Jul–Sep 2026)',desc:'Form 24Q / 26Q / 27Q for TDS deducted in Q2 FY 2026-27',penalty:'₹200/day u/s 234E; penalty u/s 271H'},
+            {date:'2026-10-31',cat:'tax',title:'ITR Filing – Audit Cases',desc:'Income Tax Return for companies, firms & individuals requiring audit (FY 2025-26)',penalty:'₹5,000 late fee u/s 234F; prosecution u/s 276CC'},
+            {date:'2026-11-30',cat:'tax',title:'ITR Filing – Transfer Pricing Cases',desc:'Income Tax Return for entities with international transactions (FY 2025-26)',penalty:'₹5,000 late fee u/s 234F'},
+            {date:'2026-12-15',cat:'tax',title:'Advance Tax – 3rd Instalment (75%)',desc:'Cumulative 75% of estimated tax liability for FY 2026-27',penalty:'1% per month interest u/s 234C'},
+            {date:'2026-12-31',cat:'tax',title:'TDS Certificate – Q2 (Form 16A)',desc:'Issue TDS certificates to deductees for Q2',penalty:'₹100/day per certificate u/s 272A(2)'},
+            {date:'2027-01-15',cat:'tax',title:'TDS Return – Q3 (Oct–Dec 2026)',desc:'Form 24Q / 26Q / 27Q for TDS deducted in Q3 FY 2026-27',penalty:'₹200/day u/s 234E; penalty u/s 271H'},
+            {date:'2027-03-15',cat:'tax',title:'Advance Tax – 4th Instalment (100%)',desc:'Full 100% of estimated tax liability for FY 2026-27',penalty:'1% per month interest u/s 234B'},
+            {date:'2027-03-31',cat:'tax',title:'Belated / Revised ITR Last Date',desc:'Last date to file belated or revised ITR for FY 2025-26',penalty:'₹10,000 late fee u/s 234F if not filed by March 31'},
+            {date:'2027-05-31',cat:'tax',title:'TDS Return – Q4 (Jan–Mar 2027)',desc:'Form 24Q / 26Q / 27Q for TDS deducted in Q4 FY 2026-27',penalty:'₹200/day u/s 234E; penalty u/s 271H'},
+        ];
+
+        function gcalLink(ev) {
+            const d = new Date(ev.date);
+            const fmt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+            const start = fmt(d);
+            const end = fmt(new Date(d.getTime() + 86400000));
+            return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.title)}&dates=${start}/${end}&details=${encodeURIComponent(ev.desc)}`;
+        }
+
+        function daysFrom(dateStr) {
+            const d = new Date(dateStr); d.setHours(0,0,0,0);
+            return Math.round((d - today) / 86400000);
+        }
+
+        let curYear = today.getFullYear();
+        let curMonth = today.getMonth();
+        let activeCat = 'all';
+
+        function renderUrgent() {
+            const upcoming = events
+                .filter(e => daysFrom(e.date) >= 0 && daysFrom(e.date) <= 30)
+                .sort((a,b) => new Date(a.date) - new Date(b.date))
+                .slice(0,3);
+            if (!upcoming.length) {
+                document.getElementById('calUrgent').innerHTML = '<div class="cal-urgent" style="color:#8eadd4;font-size:.85rem;">No deadlines in the next 30 days.</div>';
+                return;
+            }
+            document.getElementById('calUrgent').innerHTML = upcoming.map(ev => {
+                const d = daysFrom(ev.date);
+                const catColors = {mca:'#1250D6',sebi:'#6B21A8',fema:'#B45309',tax:'#065F46'};
+                return `<div class="cal-urgent">
+                    <div class="cal-urgent-days${d<=3?' overdue':''}">${d}<span>${d===0?'TODAY':d===1?'TOMORROW':'days away'}</span></div>
+                    <div class="cal-urgent-title">${ev.title}</div>
+                    <span class="cal-urgent-cat" style="background:${catColors[ev.cat]}22;color:${catColors[ev.cat]};border:1px solid ${catColors[ev.cat]}44">${ev.cat.toUpperCase()}</span>
+                </div>`;
+            }).join('');
+        }
+
+        function renderMonth() {
+            const title = MONTHS[curMonth] + ' ' + curYear;
+            document.getElementById('calMonthTitle').textContent = title;
+
+            const filtered = events.filter(e => {
+                const d = new Date(e.date);
+                return d.getFullYear() === curYear && d.getMonth() === curMonth &&
+                    (activeCat === 'all' || e.cat === activeCat);
+            }).sort((a,b) => new Date(a.date) - new Date(b.date));
+
+            const container = document.getElementById('calEvents');
+            if (!filtered.length) {
+                container.innerHTML = `<div class="cal-empty">No ${activeCat === 'all' ? '' : activeCat.toUpperCase()+' '}compliance deadlines in ${title}.<br><small>Use the arrows to navigate to other months.</small></div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(ev => {
+                const d = new Date(ev.date);
+                const diff = daysFrom(ev.date);
+                const isOverdue = diff < 0;
+                const isSoon = diff >= 0 && diff <= 7;
+                const dayNum = d.getDate();
+                const mo = MONTHS[d.getMonth()].slice(0,3);
+                let statusHtml = '';
+                if (isOverdue) statusHtml = '<span class="cal-status overdue">Overdue</span>';
+                else if (diff === 0) statusHtml = '<span class="cal-status soon">Today!</span>';
+                else if (isSoon) statusHtml = `<span class="cal-status soon">In ${diff} day${diff===1?'':'s'}</span>`;
+
+                return `<div class="cal-event${isOverdue?' overdue':isSoon?' soon':''}">
+                    <div class="cal-event-date">
+                        <div class="cal-event-day">${dayNum}</div>
+                        <div class="cal-event-mo">${mo}</div>
+                    </div>
+                    <div class="cal-event-body">
+                        <div class="cal-event-title">${ev.title}</div>
+                        <div class="cal-event-desc">${ev.desc}</div>
+                        <div class="cal-event-foot">
+                            <span class="cal-badge ${ev.cat}">${ev.cat.toUpperCase()}</span>
+                            ${statusHtml}
+                            ${ev.penalty ? `<span class="cal-penalty">⚠ ${ev.penalty}</span>` : ''}
+                            <a class="cal-gcal" href="${gcalLink(ev)}" target="_blank" rel="noopener">+ Add to Calendar</a>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        // Nav
+        document.getElementById('calPrev').addEventListener('click', () => {
+            curMonth--; if (curMonth < 0) { curMonth = 11; curYear--; }
+            renderMonth();
+        });
+        document.getElementById('calNext').addEventListener('click', () => {
+            curMonth++; if (curMonth > 11) { curMonth = 0; curYear++; }
+            renderMonth();
+        });
+
+        // Filters
+        document.querySelectorAll('.cal-filter').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.cal-filter').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCat = btn.dataset.cat;
+                renderMonth();
+            });
+        });
+
+        renderUrgent();
+        renderMonth();
+    })();
+
+    // ── Regulatory Updates Feed ──
+    (function() {
+        const content       = document.getElementById('regContent');
+        const sourceLink    = document.getElementById('regSourceLink');
+        const lastUpdatedEl = document.getElementById('regLastUpdated');
+        const liveLabelEl   = document.getElementById('regLiveLabel');
+        const btns          = document.querySelectorAll('.reg-tab-btn');
+        const RSS2JSON      = 'https://api.rss2json.com/v1/api.json?rss_url=';
+        const CACHE_TTL     = 24 * 60 * 60 * 1000; // 24 hours
+        const memCache      = {};
+
+        /* ── localStorage cache helpers ── */
+        function lsKey(url) { return 'reg_' + url.split('/').slice(-2).join('_').replace(/\W/g,'').slice(0,24); }
+        function lsGet(url) {
+            try {
+                const d = JSON.parse(localStorage.getItem(lsKey(url)));
+                if (d && Date.now() - d.ts < CACHE_TTL) return d.items;
+            } catch(e) {}
+            return null;
+        }
+        function lsSet(url, items) {
+            try { localStorage.setItem(lsKey(url), JSON.stringify({ items, ts: Date.now() })); } catch(e) {}
+        }
+        function lsAge(url) {
+            try {
+                const d = JSON.parse(localStorage.getItem(lsKey(url)));
+                return d ? Date.now() - d.ts : null;
+            } catch(e) { return null; }
+        }
+
+        /* ── Helpers ── */
+        function shimmer() {
+            content.innerHTML = '<div class="reg-shimmer">' + Array(5).fill('<div class="reg-shimmer-row"></div>').join('') + '</div>';
+        }
+        function cleanTitle(t) {
+            return (t||'').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/<[^>]+>/g,'').trim();
+        }
+        function formatDate(str) {
+            if (!str) return '';
+            try { const d = new Date(str); return isNaN(d) ? '' : d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}); }
+            catch(e) { return ''; }
+        }
+        function showAge(feedUrl) {
+            const ms = lsAge(feedUrl);
+            if (ms === null) { lastUpdatedEl.textContent = ''; return; }
+            const mins = Math.floor(ms / 60000);
+            const hrs  = Math.floor(mins / 60);
+            lastUpdatedEl.textContent = hrs > 0 ? `Updated ${hrs}h ago` : `Updated ${mins}m ago`;
+        }
+
+        /* ── Render live items ── */
+        function renderItems(items, label, color, siteUrl) {
+            if (!items || !items.length) {
+                content.innerHTML = `<div class="reg-error">
+                    <p>No live updates right now.</p>
+                    <a href="${siteUrl}" target="_blank" rel="noopener" class="reg-err-link">Visit official source →</a>
+                </div>`;
+                return;
+            }
+            const abbr = label.split('/')[0].trim().slice(0,4).toUpperCase();
+            content.innerHTML = '<div class="reg-items">' + items.slice(0,8).map(item => {
+                const title = cleanTitle(item.title);
+                if (!title) return '';
+                const link = item.link || item.guid || siteUrl;
+                const date = formatDate(item.pubDate);
+                return `<a class="reg-item" href="${link}" target="_blank" rel="noopener noreferrer">
+                    <div class="reg-item-icon" style="background:${color}">${abbr}</div>
+                    <div class="reg-item-body">
+                        <div class="reg-item-title">${title}</div>
+                        <div class="reg-item-meta">
+                            <span class="reg-item-src">${label}</span>
+                            ${date ? `<span class="reg-item-date">${date}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="reg-item-arrow">↗</div>
+                </a>`;
+            }).filter(Boolean).join('') + '</div>';
+        }
+
+        /* ── Render static portal links ── */
+        function renderStatic(btn) {
+            const portals = JSON.parse(btn.dataset.portals || '[]');
+            const color   = btn.dataset.color;
+            liveLabelEl.textContent = 'Official portals';
+            lastUpdatedEl.textContent = '';
+            sourceLink.style.display = 'none';
+            content.innerHTML =
+                '<div class="reg-portals">' +
+                portals.map(p => `
+                    <a class="reg-portal-card" href="${p.url}" target="_blank" rel="noopener noreferrer">
+                        <div class="reg-portal-ico" style="background:${color}18;">🏛</div>
+                        <div>
+                            <div class="reg-portal-name">${p.name}</div>
+                            <div class="reg-portal-desc">${p.desc}</div>
+                        </div>
+                        <div class="reg-portal-arrow">↗</div>
+                    </a>`).join('') +
+                '</div>' +
+                '<div class="reg-static-note">Visit the portals above for the latest circulars and notifications.</div>';
+        }
+
+        /* ── Fetch live feed ── */
+        async function fetchViaRss2json(feedUrl) {
+            const r = await fetch(RSS2JSON + encodeURIComponent(feedUrl), { signal: AbortSignal.timeout(10000) });
+            const d = await r.json();
+            if (d.status === 'ok' && d.items && d.items.length) return d.items;
+            throw new Error(d.message || 'empty');
+        }
+        async function fetchViaProxy(feedUrl) {
+            const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(feedUrl);
+            const r = await fetch(proxy, { signal: AbortSignal.timeout(12000) });
+            const d = await r.json();
+            const xml = new DOMParser().parseFromString(d.contents || '', 'text/xml');
+            const nodes = Array.from(xml.querySelectorAll('item'));
+            if (!nodes.length) throw new Error('empty');
+            return nodes.map(n => ({
+                title:   n.querySelector('title')?.textContent || '',
+                link:    n.querySelector('link')?.textContent || n.querySelector('guid')?.textContent || '',
+                pubDate: n.querySelector('pubDate')?.textContent || ''
+            }));
+        }
+
+        /* ── Load a tab ── */
+        async function loadTab(btn) {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            /* Static portal tabs */
+            if (btn.dataset.static === 'true') {
+                renderStatic(btn);
+                return;
+            }
+
+            /* Live feed tabs */
+            const feed    = btn.dataset.feed;
+            const label   = btn.dataset.label;
+            const color   = btn.dataset.color;
+            const siteUrl = btn.dataset.url;
+
+            sourceLink.href         = siteUrl;
+            sourceLink.style.display = '';
+            liveLabelEl.textContent = 'Live from official sources';
+            showAge(feed);
+
+            /* Check memory cache first, then localStorage */
+            if (memCache[feed]) { renderItems(memCache[feed], label, color, siteUrl); showAge(feed); return; }
+            const stored = lsGet(feed);
+            if (stored) { memCache[feed] = stored; renderItems(stored, label, color, siteUrl); showAge(feed); return; }
+
+            shimmer();
+            try {
+                let items;
+                try { items = await fetchViaRss2json(feed); }
+                catch(e) { items = await fetchViaProxy(feed); }
+                memCache[feed] = items;
+                lsSet(feed, items);
+                renderItems(items, label, color, siteUrl);
+                showAge(feed);
+            } catch(err) {
+                content.innerHTML = `<div class="reg-error">
+                    <p>Could not load updates. Check your connection or visit the source directly.</p>
+                    <a href="${siteUrl}" target="_blank" rel="noopener" class="reg-err-link">Open ${label.split('/')[0].trim()} →</a>
+                </div>`;
+            }
+        }
+
+        /* ── Daily auto-refresh: invalidate localStorage cache after 24h ── */
+        function invalidateStaleCache() {
+            btns.forEach(btn => {
+                if (btn.dataset.static === 'true' || !btn.dataset.feed) return;
+                const key = lsKey(btn.dataset.feed);
+                try {
+                    const d = JSON.parse(localStorage.getItem(key));
+                    if (d && Date.now() - d.ts >= CACHE_TTL) {
+                        localStorage.removeItem(key);
+                        delete memCache[btn.dataset.feed];
+                    }
+                } catch(e) {}
+            });
+        }
+        invalidateStaleCache();
+        setInterval(invalidateStaleCache, 60 * 60 * 1000); // check every hour
+
+        /* ── Update "X hours ago" label every minute ── */
+        setInterval(() => {
+            const active = document.querySelector('.reg-tab-btn.active');
+            if (active && active.dataset.feed) showAge(active.dataset.feed);
+        }, 60000);
+
+        btns.forEach(btn => btn.addEventListener('click', () => loadTab(btn)));
+
+        /* Auto-load SEBI tab (first live tab) on page load */
+        const firstLive = Array.from(btns).find(b => !b.dataset.static);
+        if (firstLive) { firstLive.click(); }
+    })();
+
+    // ── Active nav on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }, { threshold: 0.4 });
+    sections.forEach(s => sectionObserver.observe(s));
+</script>
 </body>
-
 </html>
